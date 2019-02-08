@@ -1,0 +1,95 @@
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 80%;
+}
+
+main,
+footer,
+.nav-container {
+  display: block;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 80%;
+}
+
+.nav {
+  overflow: auto;
+
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 3rem auto 1rem;
+    text-align: center;
+
+    .logo {
+      height: 3rem;
+
+      img {
+        height: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      flex: 1 0 0;
+
+      .text-link {
+        @include transition(all .2s ease-out);
+        color: $default-tint;
+
+        &:hover,
+        &:focus {
+          color: $default-shade;
+        }
+      }
+    }
+
+    .active {
+      color: #ff0000;
+    }
+  }
+
+  &-title {
+    @include transition(all .2s ease-out);
+    color: $default-color;
+    display: inline-block;
+    margin: 0;
+    padding-right: .2rem;
+
+    &:hover,
+    &:focus {
+      opacity: .6;
+    }
+  }
+
+  // Maybe needed when adding more nav items
+  //@media (min-width: 600px) {
+  //  &-container {
+  //    flex-direction: row;
+  //
+  //    .logo { order: 0; }
+  //
+  //    span {
+  //      flex: 1 0 0;
+  //      margin: 0;
+  //    }
+  //  }
+  //}
+}
+
+footer {
+  font-family: $serif-secondary;
+  padding: 1rem 0 3rem;
+  text-align: center;
+
+  img {
+    margin: 0 auto;
+    width: 2rem;
+    height: auto;
+  }
+}
