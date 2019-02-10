@@ -42,7 +42,7 @@ sudo apt-get install python-certbot-nginx
 
 # Adding certificates to your sites
 Adding a new certificate to a block (site) in Nginx is very easy. It’s just one command for generating, adding to block
-and enabling auto renewal.
+and enabling auto renewal. Make sure the blocks enabled, otherwise Certbot won't find them.
 
 `sudo certbot --nginx -d example.com -d www.example.com`
 
@@ -62,7 +62,7 @@ site that doesn’t support encrypted traffic everywhere.
 
 To see the configuration added to your site you can check out the Nginx block configuration by typing:
 
-`vim /etc/nginx/sites-available/eriksamuelsson.com`
+`vim /etc/nginx/sites-available/example.com`
 
 ## Test your certificates
 We need to make sure that everything is working properly before relaxing and forgetting about SSL certificates (that’s a
