@@ -26,7 +26,7 @@ steps:
         from_secret: deploy_key
       target:
         from_secret: deploy_target
-      source:  /drone/src/_site/*
+      source:  /drone/src/_site/
       recursive: true
       exclude:
         - "README.md"
