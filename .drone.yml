@@ -1,7 +1,29 @@
-pipeline:
-  build:
+kind: pipeline
+name: production
+when:
+  event: [ push ]
+  branch: [ master ]
+
+steps:
+  - name: build
     image: ruby
     commands:
       - gem install bundler
       - bundle install
+      - export JEKYLL_ENV=production
       - bundle exec jekyll build
+
+  - name: deploy
+    image: drillster/drone-rsync
+    settings:
+      hosts:
+        from_secret: deploy_host
+      port:
+        from_secret: deploy_port
+      user:
+        from_secret: deploy_user
+      key:
+        from_secret: deploy_key
+      target:
+        from_secret: deploy_target
+      source:  /drone/src/_site/*
