@@ -357,6 +357,13 @@ when:               # Only run the pipeline when it's a push to master
   event: [ push ]
   branch: [ master ]
 
+# At the time of this writing there was an issue with latest commit not
+# being pulled correctly. This fixes it but you may not need it.
+clone:
+  git:
+    image: plugins/git
+    pull: true
+
 steps:              # Categorize each step
   - name: build     # Name of the categorized step
     image: ruby     # Use an image for each language used
@@ -382,9 +389,11 @@ steps:              # Categorize each step
       target:
         from_secret: deploy_target
       source: /drone/src/_site/*
-      exclude:      # Optional to exclude some files or directories
+      exclude:          # Optional to exclude some files or directories
         - "README.md"
-      script:       # Run remote scripts after rsync is completed
+      recursive: true   # Update files recursively on remote, needed if directories
+      delete: true      # Remove remote files not present on client side
+      script:           # Run optional remote scripts after rsync is completed
         - cd ~/scripts
         - sh run_my_script.sh
 {% endhighlight %}
