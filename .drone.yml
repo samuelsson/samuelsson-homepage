@@ -5,6 +5,11 @@ when:
   branch: [ master ]
 
 steps:
+  - clone:
+      git:
+        image: plugins/git
+        pull: true
+
   - name: build
     image: ruby
     commands:
