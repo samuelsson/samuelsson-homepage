@@ -1,16 +1,12 @@
-.container {
-  margin: 0 auto;
-  max-width: 800px;
-  width: 80%;
-}
-
 main,
 footer,
 .nav-container {
   display: block;
   margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
   max-width: 1000px;
-  width: 80%;
+  width: 100%;
 }
 
 .nav {
@@ -91,5 +87,15 @@ footer {
     margin: 0 auto;
     width: 2rem;
     height: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  main,
+  footer,
+  .nav-container {
+    width: 80%;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
