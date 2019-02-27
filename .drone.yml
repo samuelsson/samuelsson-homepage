@@ -4,12 +4,12 @@ when:
   event: [ push ]
   branch: [ master ]
 
-steps:
-  - clone:
-      git:
-        image: plugins/git
-        pull: true
+clone:
+  git:
+    image: plugins/git
+    pull: true
 
+steps:
   - name: build
     image: ruby
     commands:
