@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Always perfect commit messages with Git Commitizen and Husky
+title: Always write perfect commit messages with Git Commitizen and Husky
 tags: ['git']
 ---
 
