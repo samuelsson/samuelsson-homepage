@@ -4,9 +4,9 @@ title: Different git config for different projects or clients
 tags: ['git', 'dotfiles']
 ---
 
-If only working on private projects with one single git service there won’t be a problem with user
-config such as name and email. All your commits will always use the same information. But say you
-are using one service for private projects, such as GitHub, and another service for work related
+If only working on projects with one single git service you won’t have a problem with email
+addresses differ between accounts. All your commits will always use the same information. But say
+you are using one service for private projects, such as GitHub, and another service for work related
 projects, like GitHub Enterprise. If that’s the case you definitely don’t want to use the same
 configuration for both of them. One solution is to set these manually on every repository but that’s
 not very smooth in the long run. Fortunately we can set up conditional git configuration per
@@ -59,23 +59,25 @@ Now we need to add some conditionals to our  `~/.gitconfig` so it looks similar 
     path = ~/.dotfiles/git/gitconfig-client_b
 ```
 
-By having my personal information set as default every time I can create repos anywhere without
+By having our personal information set as default every time we can create repos anywhere without
 worrying about the _name_ and _email_. In the above example the paths are located in my dotfiles
 directory but they can be saved anywhere. Let’s create them and add different values inside.
 
 ```shell
+; ~/.dotfiles/git/gitconfig-client_a
+
 [user]
     name = Erik Samuelsson
     email = erik@client_a.com
 ```
-_`~/.dotfiles/git/gitconfig-client_a`_
 
 ```shell
+; ~/.dotfiles/git/gitconfig-client_b
+
 [user]
     name = Bob Anderson
     email = bob@client_b.com
 ```
-_`~/.dotfiles/git/gitconfig-client_b`_
 
 Now we need to test everything to see if it works.
 
