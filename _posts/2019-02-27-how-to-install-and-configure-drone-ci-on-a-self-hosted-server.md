@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to install and configure Drone CI on a self-hosted server
-tags: ['ci', 'build', 'docker', 'deployment']
+tags: ['drone', 'ci', 'build', 'docker', 'deployment']
 ---
 
 Drone CI is an open source continues integration and delivery platform built on container technlogoy. It is a
