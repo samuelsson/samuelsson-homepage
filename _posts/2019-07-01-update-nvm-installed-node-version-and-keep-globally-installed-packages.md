@@ -16,13 +16,13 @@ nvm ls-remote --lts | grep Latest
 
 This will list all v12.x versions:
 ```shell
-nvm ls-remote --lts | grep v12
+nvm ls-remote | grep v12
 ```
 
 If there is a newer version we can update to that one 💪🏻 We'll do it differently depending on if it's the absolute latest or an LTS version.
 
 ## Updating the latest version
-Let’s say that out currently installed version is `v12.4.0` and we want to install `v12.5.0`, which is the latest version. Nvm has a nifty command that till do this for us, without keeping track of version numbers.
+Let’s say that our currently installed version is `v12.4.0` and we want to install `v12.5.0`, which is the latest version in this example. Nvm has a nifty command that till do this for us, without keeping track of version numbers.
 
 ```shell
 nvm install node --reinstall-packages-from=node
