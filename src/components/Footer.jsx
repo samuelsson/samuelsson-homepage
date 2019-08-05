@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, mediaQueries, variables } from '../styles';
+import { colors, variables } from '../styles';
 
 const StyledFooterContainer = styled.div`
   border-top: 2px solid ${colors.gray[300]};

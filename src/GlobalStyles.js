@@ -17,6 +17,11 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.2em;
     }
   }
+
+  // Fix overflowing images
+  //img {
+  //  max-width: 100%;
+  //}
   
   a {
     text-decoration: none;

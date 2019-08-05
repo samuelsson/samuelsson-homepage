@@ -14,7 +14,6 @@ module.exports = {
     baseUrl: 'https://eriksamuelsson.com',
   },
   plugins: [
-    'gatsby-plugin-mdx',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
@@ -35,11 +34,32 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/images`,
+        name: 'images',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              backgroundColor: 'transparent',
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
             options: {
