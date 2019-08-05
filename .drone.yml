@@ -4,34 +4,34 @@ when:
   event: [ push ]
   branch: [ master ]
 
-#clone:
-#  git:
-#    image: plugins/git
-#    pull: true
-#
-#steps:
-#  - name: build
-#    image: node
-#    commands:
-#      - npm install
-#      - export NODE_ENV=production
-#      - npm run build
-#
-#  - name: deploy
-#    image: drillster/drone-rsync
-#    settings:
-#      hosts:
-#        from_secret: deploy_host
-#      port:
-#        from_secret: deploy_port
-#      user:
-#        from_secret: deploy_user
-#      key:
-#        from_secret: deploy_key
-#      target:
-#        from_secret: deploy_target
-#      source:  /drone/src/public/
-#      recursive: true
-#      delete: true
-#      exclude:
-#        - "README.md"
+clone:
+  git:
+    image: plugins/git
+    pull: true
+
+steps:
+  - name: build
+    image: node
+    commands:
+      - npm install
+      - export NODE_ENV=production
+      - npm run build
+
+  - name: deploy
+    image: drillster/drone-rsync
+    settings:
+      hosts:
+        from_secret: deploy_host
+      port:
+        from_secret: deploy_port
+      user:
+        from_secret: deploy_user
+      key:
+        from_secret: deploy_key
+      target:
+        from_secret: deploy_target
+      source:  /drone/src/public/
+      recursive: true
+      delete: true
+      exclude:
+        - "README.md"
