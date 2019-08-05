@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+sitemap: https://eriksamuelsson.com/sitemap.xml

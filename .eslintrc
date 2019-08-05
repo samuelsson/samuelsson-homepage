@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
+  "settings": {
+    "import/core-modules": ["gatsby"]
+  },
+  "rules": {
+    "prettier/prettier": ["error"],
+    "quotes": ["error", "single"],
+    "import/prefer-default-export": 0,
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [ "Link" ],
+        "specialLink": [ "to" ],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+  },
+}
