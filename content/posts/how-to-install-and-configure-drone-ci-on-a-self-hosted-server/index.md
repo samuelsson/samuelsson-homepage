@@ -10,8 +10,8 @@ Drone CI is an open source continues integration and delivery platform built on 
 
 In this guide we are using Ubuntu 18.04 and Drone version 1.0.0-rc.5.
 
-![Secrets in Drone CI](drone_ci.png)
-![Secrets in Drone CI](drone_ci2.png)
+![Secrets in Drone CI](./drone_ci.png)
+![Secrets in Drone CI](./drone_ci2.png)
 
 ## Install Docker
 
@@ -74,7 +74,7 @@ You can use most git service with Drone but in this guide we will use GitHub.
 
 Visit GitHub and go to Settings. Then navigate to `Developer settings -> OAuth Apps` and click `Register a new application`.
 
-![Secrets in Drone CI](drone_github_app.png)
+![Secrets in Drone CI](./drone_github_app.png)
 
 Fill out the form like this:
 
@@ -287,7 +287,7 @@ Drone has an excellent system for storing these secrets and making them accessib
 
 ### Add secrets to Drone
 
-![Secrets in Drone CI](drone_ci3.png)
+![Secrets in Drone CI](./drone_ci3.png)
 
 Navigate to your repository in Drone and go to settings. If you scroll down you'll find the secrets panel. We will be adding five secrets for our build.
 
@@ -319,7 +319,7 @@ You need read permissions to the key file and the `@` at the beginning is not a 
 
 This is what it should look like afterwards:
 
-![Secrets in Drone CI](drone_secrets.png)
+![Secrets in Drone CI](./drone_secrets.png)
 
 ## Add the Drone configuration to the project
 

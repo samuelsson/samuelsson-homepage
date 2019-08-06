@@ -8,7 +8,7 @@ thumbnail: '../../thumbnails/nginx.png'
 
 If you’ve been working with web servers for a while you’ve probably heard about Apache. It was pretty much the default solution when setting up a new site on a self hosted server a while back. The classic *LAMP stack*, an acronym for Linux, Apache, MySQL and PHP, were used everywhere. Even though Apache definitely has its place it is pretty exhausting to setup with a lot of configuration and for simpler projects Nginx is a nicer solution in my opinion. That doesn’t mean Nginx is only for simple projects, of course. Both have their pros and cons but in this guide we’ll install and setup Nginx on Ubuntu.
 
-![Logo of Nginx](nginx.svg)
+![Logo of Nginx](./nginx.svg)
 
 
 ## Install Nginx
@@ -32,7 +32,7 @@ Press *Q* to close the status.
 
 ## Allow Nginx traffic in the firewall
 
-Then we need to add a rule to UFW, the Ubuntu firewall, so our web server can receive incoming connections. We wouldn’t get many visitors if we don’t 😉 
+Then we need to add a rule to UFW, the Ubuntu firewall, so our web server can receive incoming connections. We wouldn't get many visitors if we didn't 😉 
 
 > **Important!** If UFW isn’t enabled and you choose to do so it’s very important that you also enable OpenSSH if you are connected over SSH. Otherwise you will lock yourself out of your server.
 

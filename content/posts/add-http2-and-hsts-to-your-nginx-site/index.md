@@ -96,4 +96,4 @@ Visit your site and check if everything is working. Open the *dev tools* and und
 
 You can also test your site over at [SSL Server Test](https://ssllabs.com/ssltest/). You should get an A+ score now with HTTP/2 and HSTS.
 
-![SSL Server Test with A+ score](ssl_server_test_a_plus.png)
+![SSL Server Test with A+ score](./ssl_server_test_a_plus.png)

@@ -44,12 +44,12 @@ module.exports = {
 
 Now when we try to write a commit message that isn't valid according to our linting we will get an error, or multiple.
 
-![Error when writing invalif commit msg](error.png)
+![Error when writing invalif commit msg](./error.png)
 
 To help us write valid messages we can type `npx git-cz`. By using `npx` we don’t have to install the package as mentioned before, but instead running the script directly.
 
-![Pick what kind of commit it is](commiting.png)
+![Pick what kind of commit it is](./commiting.png)
 
-![Help with writing good commit msg](help.png)
+![Help with writing good commit msg](./help.png)
 
 Great! Now we’ll always have perfect commit messages for all team members. Just follow the step-by-step guide and if you want to know in more detail what to type [here](https://github.com/erlang/otp/wiki/writing-good-commit-messages) is a good guide.

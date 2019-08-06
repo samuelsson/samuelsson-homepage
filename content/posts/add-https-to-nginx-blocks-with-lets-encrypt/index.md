@@ -8,7 +8,7 @@ thumbnail: '../../thumbnails/nginx.png'
 
 Browsing the web unencrypted with only HTTP is not recommended anymore and Google recently started to mark all sites without SSL as “not secure” in their browser Chrome. Adding a certificate to your site used to cost money and often meant a lot of work setting up and renew it regularly. But with *Let’s Encrypt* it’s the opposite and there really is no excuse for not using HTTPS on your sites anymore.
 
-![Logo of Let's Encrypt](lets_encrypt.png)
+![Logo of Let's Encrypt](./lets_encrypt.png)
 
 ## What is Let’s Encrypt?
 
