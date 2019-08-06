@@ -26,7 +26,7 @@ Here's the part list.
 * **LEDs:** Varm white 1.8 mm - Random China bulk
 * **Stabilizers:**
   * ZealPC clear PCB mounted
-  * Cherry original Place mounted
+  * Cherry original Plate mounted
 
 Enough with the writing, let's look at some pictures 😍
 
