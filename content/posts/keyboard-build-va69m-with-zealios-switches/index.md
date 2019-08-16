@@ -2,7 +2,7 @@
 title: 'Keyboard build - va69m with Zealios switches'
 date: '2018-12-18'
 categories: ['personal']
-tags: ['keyboard']
+tags: ['keyboard', 'build log']
 thumbnail: '../../thumbnails/mbp.png'
 ---
 
