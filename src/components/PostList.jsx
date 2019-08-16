@@ -7,12 +7,16 @@ import { colors, mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 
 const StyledPostList = styled.div`
-  margin: 0 -1rem;
+  margin: 0;
+
+  @media ${mediaQueries.medium} {
+    margin: 0 -1rem;
+  }
 `;
 
 const StyledLink = styled(Link)`
   display: flex;
-  padding: 1rem;
+  padding: 1rem 0;
   border-bottom: 1px solid ${colors.gray[400]};
   box-shadow: none;
   text-decoration: none;

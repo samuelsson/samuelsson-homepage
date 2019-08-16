@@ -18,11 +18,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  // Fix overflowing images
-  //img {
-  //  max-width: 100%;
-  //}
-  
   a {
     text-decoration: none;
     border-bottom: 1px solid ${colors.blue};
