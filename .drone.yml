@@ -10,9 +10,9 @@ steps:
   - name: build
     image: node
     commands:
-      - npm install
-      - export GATSBY_TELEMETRY_DISABLED=1
       - export NODE_ENV=production
+      - npm install
+      - npm run disable-telemetry
       - npm run build
 
   - name: deploy
