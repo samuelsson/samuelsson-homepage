@@ -50,9 +50,9 @@ And it will look like this in our `package.json`:
 
 ## peerDependencies
 
-This is usually the trickier one to grasp when first working with dependencies. `peerDependencies` are dependencies required to be installed in the application or package using our package, it expresses compatibility. That means if someone wants to use your package they also need to install these dependencies.
+This is usually the trickier one to grasp when first working with dependencies. `peerDependencies` are packages required to be installed in the application using your package, it expresses compatibility. That means if someone wants to use your package they also need to install these dependencies.
 
-> peerDependencies are dependencies required to be installed in the application or package using our package, it expresses compatibility.
+> peerDependencies are packages required to be installed in the application using your package.
 
 In our example we have created a React component and if someone wants to use it they need React to be installed, it can't be used in a Vue project for example. So React is simply a peer dependency.
 
