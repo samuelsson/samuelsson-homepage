@@ -1,8 +1,5 @@
 kind: pipeline
 name: production
-when:
-  event: [ push ]
-  branch: [ master ]
 
 clone:
   git:
@@ -14,6 +11,7 @@ steps:
     image: node
     commands:
       - npm install
+      - export GATSBY_TELEMETRY_DISABLED=1
       - export NODE_ENV=production
       - npm run build
 
