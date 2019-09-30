@@ -3,7 +3,7 @@ title: 'Difference between dependencies, devDependencies and peerDependencies in
 date: '2019-09-30'
 categories: ['tools']
 tags: ['npm']
-thumbnail: '../thumbnails/node.png'
+thumbnail: '../thumbnails/npm.png'
 ---
 
 When creating a new npm project, all those with a `package.json` in the root directory, we usually don't create everything from scratch but need some dependencies. There are different type of dependencies that can be somewhat difficult to keep apart. I'll explain the differences between the three most common with a real world example.
