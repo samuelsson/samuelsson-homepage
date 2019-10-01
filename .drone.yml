@@ -1,10 +1,10 @@
 kind: pipeline
+type: docker
 name: production
 
-clone:
-  git:
-    image: plugins/git
-    pull: true
+trigger:
+  branch:
+    - master
 
 steps:
   - name: build
