@@ -1,7 +1,12 @@
 ---
 kind: pipeline
-type: docker
-name: prod
+name: production
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
 
 steps:
   - name: build
@@ -28,9 +33,3 @@ steps:
       source:  /drone/src/public/
       recursive: true
       delete: true
-      exclude:
-        - "README.md"
-
-trigger:
-  branch:
-    - master
