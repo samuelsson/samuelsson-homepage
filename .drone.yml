@@ -1,10 +1,6 @@
+---
 kind: pipeline
-type: docker
-name: production
-
-trigger:
-  branch:
-    - master
+name: prod
 
 steps:
   - name: build
@@ -33,3 +29,7 @@ steps:
       delete: true
       exclude:
         - "README.md"
+
+trigger:
+  branch:
+    - master
