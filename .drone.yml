@@ -1,4 +1,3 @@
----
 kind: pipeline
 name: production
 
@@ -33,3 +32,20 @@ steps:
       source:  /drone/src/public/
       recursive: true
       delete: true
+
+---
+kind: pipeline
+name: pull_request
+
+trigger:
+  event:
+    - pull_request
+
+steps:
+  - name: lint
+    image: node
+    commands:
+      - export NODE_ENV=production
+      - npm install
+      - npm run disable-telemetry
+      - npm run lint
