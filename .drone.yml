@@ -45,7 +45,6 @@ steps:
   - name: lint
     image: node
     commands:
-      - export NODE_ENV=production
       - npm install
       - npm run disable-telemetry
       - npm run lint
