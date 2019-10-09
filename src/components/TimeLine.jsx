@@ -6,6 +6,7 @@ import { colors, mediaQueries } from '../styles';
 const timeLineDot = css`
   position: absolute;
   left: 74px;
+  top: calc(50% - 6px);
   background-color: ${colors.blue};
   border-radius: 50%;
   width: 12px;
