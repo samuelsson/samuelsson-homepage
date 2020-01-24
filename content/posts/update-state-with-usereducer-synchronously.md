@@ -6,7 +6,7 @@ tags: ['react', 'quick tip']
 thumbnail: '../thumbnails/react.png'
 ---
 
-Hooks in Reacts are wonderful to work with and managing local state is one of the most common ones. For more complex states the `useState()` hook could be changed to a `useReducer` instead. A problem we might encounter is that state isn't updated synchronously after we've updated it.
+Hooks in Reacts are wonderful to work with and managing local state is one of the most common ones. For more complex states the `useState()` hook could be changed to a `useReducer()` instead. A problem we might encounter is that state isn't updated synchronously after we've updated it.
 
 Let's say we have this simplified `useReducer` just updating either first name or last name in a state object.
 
