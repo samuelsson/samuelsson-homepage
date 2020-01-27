@@ -41,7 +41,7 @@ console.log(state.firstName);
 
 Wrong! It would still be `Bobby` output on `state.firstName` even though we changed first name to Erik at the previous line. How strange 🤔
 
-The reason is that this is an asynchronous function that is returning a new state instead of mutating the existing one. So when we are logging to console, which is a side effetch, the new state actually hasn't been updated yet. If we do another dispatch with a new name it will output `Erik` that time, it will always be one behind.
+The reason is that this is an asynchronous function that is returning a new state instead of mutating the existing one. So when we are logging to console, which is a side effect, the new state actually hasn't been updated yet. If we do another dispatch with a new name it will output `Erik` that time, it will always be one behind.
 
 A simple solution to this is using `useEffect` for whenever `state` is updated and put our logic in that function instead.
 
