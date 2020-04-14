@@ -1,6 +1,6 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
 const Seo = ({ pageTitle, pageDescription, path, postSEO }) => {
