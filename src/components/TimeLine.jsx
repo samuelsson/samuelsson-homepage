@@ -23,7 +23,7 @@ const TimelineTrace = css`
   top: 0;
   left: 79px;
   bottom: 0;
-  border-right: solid 2px ${colors.darkBlue};
+  border-right: solid 2px ${colors.gray[500]};
   width: 0;
   content: '';
 
