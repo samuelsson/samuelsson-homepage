@@ -45,7 +45,7 @@ exports.createPages = async ({ actions, graphql }) => {
             }
           }
         }
-      `).then(posts => {
+      `).then((posts) => {
         if (posts.errors) {
           reject(posts.errors);
         }
@@ -58,13 +58,13 @@ exports.createPages = async ({ actions, graphql }) => {
           const { slug } = node.fields;
 
           if (tags) {
-            tags.forEach(tag => {
+            tags.forEach((tag) => {
               tagSet.add(tag);
             });
           }
 
           if (categories) {
-            categories.forEach(category => {
+            categories.forEach((category) => {
               categorySet.add(category);
             });
           }
@@ -101,7 +101,7 @@ exports.createPages = async ({ actions, graphql }) => {
         });
 
         // Create page for listing all posts containing tag
-        allTags.forEach(tag => {
+        allTags.forEach((tag) => {
           const urlSafeTag = tag.toLowerCase().replace(/\s/g, '-');
 
           createPage({
@@ -114,7 +114,7 @@ exports.createPages = async ({ actions, graphql }) => {
         });
 
         // Create page for listing all posts containing category
-        allCategories.forEach(category => {
+        allCategories.forEach((category) => {
           const urlSafeCategory = category.toLowerCase().replace(/\s/g, '-');
 
           createPage({
