@@ -7,7 +7,7 @@ import Emoji from './Emoji';
 
 const StyledPostMeta = styled.div`
   padding: 0.5rem 0;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: ${colors.gray[700]};
 
   > span {
@@ -40,6 +40,8 @@ const StyledPostMeta = styled.div`
   }
 
   @media ${mediaQueries.medium} {
+    font-size: 1rem;
+
     > span {
       padding: 0 1rem;
     }

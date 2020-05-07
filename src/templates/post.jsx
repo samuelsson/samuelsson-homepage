@@ -7,6 +7,7 @@ import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import PostHeader from '../components/PostHeader';
 import { colors } from '../styles';
+import { htmlToText } from '../helpers';
 
 const StyledArticle = styled.article`
   h2 {
@@ -36,7 +37,7 @@ const Post = ({ data }) => {
     <Layout>
       <Seo
         pageTitle={title}
-        pageDescription={excerpt}
+        pageDescription={htmlToText(excerpt)}
         path={slug}
         postSEO={postSEO}
       />
@@ -62,7 +63,7 @@ export const pageQuery = graphql`
   query BlogPostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      excerpt(pruneLength: 250)
+      excerpt(pruneLength: 250, format: HTML)
       fields {
         slug
       }

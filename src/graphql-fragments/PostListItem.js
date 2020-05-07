@@ -5,7 +5,7 @@ export const PostListItem = graphql`
     totalCount
     edges {
       node {
-        excerpt(pruneLength: 240)
+        excerpt(pruneLength: 240, format: HTML)
         fields {
           slug
         }

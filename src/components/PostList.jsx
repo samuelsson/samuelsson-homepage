@@ -5,6 +5,7 @@ import * as propTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors, mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
+import { htmlToText } from '../helpers';
 
 const StyledPostList = styled.div`
   margin: 0;
@@ -40,6 +41,7 @@ const StyledExcerpt = styled.div`
   font-size: 0.8rem;
 
   @media ${mediaQueries.medium} {
+    padding-top: 1rem;
     font-size: 1rem;
   }
 `;
@@ -66,7 +68,7 @@ const PostList = ({ posts }) => (
           <div>
             <b>{title}</b>
             <PostMeta date={date} categories={categories} />
-            <StyledExcerpt>{excerpt}</StyledExcerpt>
+            <StyledExcerpt>{htmlToText(excerpt)}</StyledExcerpt>
           </div>
         </StyledLink>
       );
