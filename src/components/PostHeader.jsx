@@ -43,7 +43,7 @@ const PostHeader = ({ title, date, tags, categories, thumbnail }) => (
     {thumbnail}
     <StyledTitle>{title}</StyledTitle>
     <PostMeta date={date} categories={categories} categoryLink />
-    {tags.map(tag => {
+    {tags.map((tag) => {
       const urlSafeTag = tag.toLowerCase().replace(/\s/g, '-');
 
       return (

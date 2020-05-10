@@ -34,6 +34,7 @@ const StyledPostMeta = styled.div`
     color: inherit;
 
     &:hover {
+      color: ${colors.black};
       text-decoration: underline;
       background-color: transparent;
     }
@@ -57,7 +58,7 @@ const PostMeta = ({ date, categories, categoryLink }) => (
     {categories && (
       <span>
         <Emoji emoji="🍱" label="Category" />
-        {categories.map(category => {
+        {categories.map((category) => {
           const urlSafeCategory = category.toLowerCase().replace(/\s/g, '-');
 
           return categoryLink ? (
