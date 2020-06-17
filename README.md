@@ -1,5 +1,5 @@
 # Erik's personal homepage
 
-![Build Status](https://drone.samuelsson.dev/api/badges/samuelsson/eriksamuelsson/status.svg)
+![Deploy](https://github.com/samuelsson/eriksamuelsson/workflows/Deploy/badge.svg)
 
 Visit it at [eriksamuelsson.com](https://eriksamuelsson.com/).
