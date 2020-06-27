@@ -1,7 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { graphql, useStaticQuery } from 'gatsby';
 import { colors, mediaQueries } from '../styles';
+
+interface AboutMeTimeLine {
+  year: number;
+  text: string;
+}
 
 const timeLineDot = css`
   position: absolute;
@@ -69,27 +73,32 @@ const YearContainer = styled.div`
   }
 `;
 
-const TimeLine = () => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            aboutMeTimeLine {
-              year
-              text
-            }
-          }
-        }
-      }
-    `
-  );
-
-  const { aboutMeTimeLine } = site.siteMetadata;
+const TimeLine = (): JSX.Element => {
+  const aboutMeTimeLine: AboutMeTimeLine[] = [
+    { year: 1988, text: 'Yaay! I was born.' },
+    { year: 1994, text: 'My dad buys our first computer and I am hooked.' },
+    {
+      year: 2001,
+      text: 'I start building my own homepages, a lot of table elements.',
+    },
+    { year: 2007, text: 'Buy my first Mac before even using one ever.' },
+    { year: 2008, text: 'Start working in an electronic retail store.' },
+    {
+      year: 2010,
+      text: 'I launch a quite popular iPhone blog built on WordPress.',
+    },
+    { year: 2011, text: 'I start my own company, doing web design.' },
+    { year: 2012, text: 'I join Mensa Sweden.' },
+    { year: 2015, text: 'I graduate from the University.' },
+    {
+      year: 2016,
+      text: 'I start working professionally as a web developer.',
+    },
+  ];
 
   return (
     <>
-      {aboutMeTimeLine.map(date => (
+      {aboutMeTimeLine.map((date) => (
         <Item key={date.year + date.text}>
           <YearContainer>{date.year}</YearContainer>
           {date.text}

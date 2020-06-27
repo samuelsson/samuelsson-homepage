@@ -1,10 +1,13 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { mediaQueries, variables } from '../styles';
 
 import Header from './Header';
 import Footer from './Footer';
+
+interface FooterProps {
+  children: React.ReactNode;
+}
 
 // Used for sticky footer
 const StyledLayout = styled.div`
@@ -28,7 +31,7 @@ const StyledMain = styled.main`
   }
 `;
 
-const Layout = ({ children }) => (
+const Layout: React.FC<FooterProps> = ({ children }): JSX.Element => (
   <StyledLayout>
     <Header />
     <StyledMainContainer>
@@ -37,9 +40,5 @@ const Layout = ({ children }) => (
     <Footer />
   </StyledLayout>
 );
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Layout;

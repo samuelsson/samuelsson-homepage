@@ -1,9 +1,26 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const Seo = ({ pageTitle, pageDescription, path, postSEO }) => {
+interface PostSeo {
+  published: string;
+  updated?: string;
+  tags?: string[];
+}
+
+interface SeoProps {
+  pageTitle?: string;
+  pageDescription?: string;
+  path?: string;
+  postSEO?: PostSeo;
+}
+
+const Seo: React.FC<SeoProps> = ({
+  pageTitle,
+  pageDescription,
+  path,
+  postSEO,
+}): JSX.Element => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -74,7 +91,7 @@ const Seo = ({ pageTitle, pageDescription, path, postSEO }) => {
       )}
       {postSEO &&
         postSEO.tags &&
-        postSEO.tags.map(tag => (
+        postSEO.tags.map((tag) => (
           <meta key={tag} property="article:tag" content={tag} />
         ))}
 
@@ -85,24 +102,6 @@ const Seo = ({ pageTitle, pageDescription, path, postSEO }) => {
       <meta name="twitter:description" content={metaDescription} />
     </Helmet>
   );
-};
-
-Seo.propTypes = {
-  pageTitle: PropTypes.string,
-  pageDescription: PropTypes.string,
-  path: PropTypes.string,
-  postSEO: PropTypes.shape({
-    published: PropTypes.string.isRequired,
-    updated: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.string),
-  }),
-};
-
-Seo.defaultProps = {
-  pageTitle: '',
-  pageDescription: '',
-  path: '',
-  postSEO: undefined,
 };
 
 export default Seo;

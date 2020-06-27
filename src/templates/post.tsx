@@ -1,13 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import * as PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import PostHeader from '../components/PostHeader';
 import { colors } from '../styles';
 import { htmlToText } from '../helpers';
+import { Node } from '../types/AllMarkdownRemark';
+
+interface PostProps {
+  data: {
+    markdownRemark: Node;
+  };
+}
 
 const StyledArticle = styled.article`
   h2 {
@@ -16,7 +22,7 @@ const StyledArticle = styled.article`
   }
 `;
 
-const Post = ({ data }) => {
+const Post: React.FC<PostProps> = ({ data }) => {
   const { markdownRemark } = data;
   const {
     frontmatter,
@@ -53,6 +59,7 @@ const Post = ({ data }) => {
             )
           }
         />
+        {/* eslint-disable-next-line react/no-danger */}
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </StyledArticle>
     </Layout>
@@ -83,9 +90,5 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-Post.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
-};
 
 export default Post;

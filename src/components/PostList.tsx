@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import * as propTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors, mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 import { htmlToText } from '../helpers';
+import { Node } from '../types/AllMarkdownRemark';
+
+interface PostListProps {
+  posts: Node[];
+}
 
 const StyledPostList = styled.div`
   margin: 0;
@@ -51,9 +55,9 @@ const StyledImg = styled(Img)`
   margin-right: 1rem;
 `;
 
-const PostList = ({ posts }) => (
+const PostList: React.FC<PostListProps> = ({ posts }) => (
   <StyledPostList className="posts">
-    {posts.map(({ node: post }) => {
+    {posts.map((post) => {
       const {
         frontmatter: { title, date, thumbnail, categories },
         excerpt,
@@ -75,24 +79,5 @@ const PostList = ({ posts }) => (
     })}
   </StyledPostList>
 );
-
-PostList.propTypes = {
-  posts: propTypes.arrayOf(
-    propTypes.objectOf(
-      propTypes.shape({
-        excerpt: propTypes.string,
-        fields: propTypes.shape({
-          slug: propTypes.string.isRequired,
-        }).isRequired,
-        frontmatter: propTypes.shape({
-          title: propTypes.string.isRequired,
-          date: propTypes.string.isRequired,
-          thumbnail: propTypes.any,
-          categories: propTypes.arrayOf(propTypes.string.isRequired),
-        }).isRequired,
-      })
-    )
-  ).isRequired,
-};
 
 export default PostList;

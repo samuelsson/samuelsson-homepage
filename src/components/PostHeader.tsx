@@ -1,8 +1,16 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors, mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
+import { toUrlSafePath } from '../helpers';
+
+interface PostHeaderProps {
+  title: string;
+  date: string;
+  tags?: string[];
+  categories?: string[];
+  thumbnail: React.ReactNode;
+}
 
 const StyledPostHeader = styled.header`
   text-align: center;
@@ -38,36 +46,23 @@ const StyledTag = styled.a`
   }
 `;
 
-const PostHeader = ({ title, date, tags, categories, thumbnail }) => (
+const PostHeader: React.FC<PostHeaderProps> = ({
+  title,
+  date,
+  tags = [],
+  categories,
+  thumbnail,
+}): JSX.Element => (
   <StyledPostHeader>
     {thumbnail}
     <StyledTitle>{title}</StyledTitle>
     <PostMeta date={date} categories={categories} categoryLink />
-    {tags.map((tag) => {
-      const urlSafeTag = tag.toLowerCase().replace(/\s/g, '-');
-
-      return (
-        <StyledTag href={`/tags/${urlSafeTag}`} key={urlSafeTag}>
-          {tag}
-        </StyledTag>
-      );
-    })}
+    {tags.map((tag) => (
+      <StyledTag href={`/tags/${toUrlSafePath(tag)}`} key={tag}>
+        {tag}
+      </StyledTag>
+    ))}
   </StyledPostHeader>
 );
-
-PostHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  categories: PropTypes.arrayOf(PropTypes.string),
-  thumbnail: PropTypes.element,
-};
-
-PostHeader.defaultProps = {
-  thumbnail: undefined,
-};
-PostHeader.defaultProps = {
-  categories: undefined,
-};
 
 export default PostHeader;

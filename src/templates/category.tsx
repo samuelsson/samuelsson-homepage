@@ -1,19 +1,28 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
+import AllMarkdownRemark from '../types/AllMarkdownRemark';
 
-const Category = ({ pathContext, data }) => {
+interface CategoryProps {
+  pathContext: {
+    category: string;
+  };
+  data: {
+    allMarkdownRemark: AllMarkdownRemark;
+  };
+}
+
+const Category: React.FC<CategoryProps> = ({ pathContext, data }) => {
   const { category } = pathContext;
-  const { edges: posts } = data.allMarkdownRemark;
+  const { nodes } = data.allMarkdownRemark;
 
   return (
     <Layout>
       <Seo pageTitle={`Posts in the category ${category}`} />
-      <h1>Posts categorized as {category}</h1>
-      <PostList posts={posts} />
+      <h1>{`Posts categorized as ${category}`}</h1>
+      <PostList posts={nodes} />
       <p>
         <Link to="/categories">All categories</Link>
       </p>
@@ -31,10 +40,5 @@ export const query = graphql`
     }
   }
 `;
-
-Category.propTypes = {
-  pathContext: PropTypes.objectOf(PropTypes.any).isRequired,
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
-};
 
 export default Category;

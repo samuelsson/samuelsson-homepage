@@ -1,9 +1,14 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { colors, mediaQueries } from '../styles';
 import Emoji from './Emoji';
+
+interface PostMetaProps {
+  date: string;
+  categories?: string[];
+  categoryLink?: boolean;
+}
 
 const StyledPostMeta = styled.div`
   padding: 0.5rem 0;
@@ -49,7 +54,11 @@ const StyledPostMeta = styled.div`
   }
 `;
 
-const PostMeta = ({ date, categories, categoryLink }) => (
+const PostMeta: React.FC<PostMetaProps> = ({
+  date,
+  categories,
+  categoryLink,
+}): JSX.Element => (
   <StyledPostMeta>
     <span>
       <Emoji emoji="📆" label="Date published" />
@@ -73,16 +82,5 @@ const PostMeta = ({ date, categories, categoryLink }) => (
     )}
   </StyledPostMeta>
 );
-
-PostMeta.propTypes = {
-  date: PropTypes.string.isRequired,
-  categories: PropTypes.arrayOf(PropTypes.string.isRequired),
-  categoryLink: PropTypes.bool,
-};
-
-PostMeta.defaultProps = {
-  categories: undefined,
-  categoryLink: false,
-};
 
 export default PostMeta;

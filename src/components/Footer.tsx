@@ -19,7 +19,7 @@ const StyledFooter = styled.footer`
   }
 `;
 
-const Footer = () => (
+const Footer = (): JSX.Element => (
   <StyledFooterContainer>
     <StyledFooter>
       <img src="/logo.svg" alt="Logo of homepage" />

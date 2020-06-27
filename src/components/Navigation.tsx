@@ -3,6 +3,11 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { colors, mediaQueries } from '../styles';
 
+interface NavLink {
+  to: string;
+  name: string;
+}
+
 const StyledNavigation = styled.nav`
   margin-left: auto;
 
@@ -46,24 +51,26 @@ const StyledNavigation = styled.nav`
   }
 `;
 
-const Navigation = () => (
+const navLinks: NavLink[] = [
+  { to: '/about', name: 'About' },
+  { to: '/blog', name: 'Blog' },
+  { to: '/contact', name: 'Contact' },
+];
+
+const Navigation = (): JSX.Element => (
   <StyledNavigation>
     <ul>
-      <li>
-        <Link to="/about" activeClassName="active">
-          About
-        </Link>
-      </li>
-      <li>
-        <Link to="/blog" activeClassName="active">
-          Blog
-        </Link>
-      </li>
-      <li>
-        <Link to="/contact" activeClassName="active">
-          Contact
-        </Link>
-      </li>
+      {navLinks.map((navLink) => {
+        const { to, name } = navLink;
+
+        return (
+          <li key={name}>
+            <Link to={to} activeClassName="active">
+              {name}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   </StyledNavigation>
 );
