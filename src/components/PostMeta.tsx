@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { colors, mediaQueries } from '../styles';
 import Emoji from './Emoji';
+import { toUrlSafePath } from '../helpers';
 
 interface PostMetaProps {
   date: string;
@@ -68,7 +69,7 @@ const PostMeta: React.FC<PostMetaProps> = ({
       <span>
         <Emoji emoji="🍱" label="Category" />
         {categories.map((category) => {
-          const urlSafeCategory = category.toLowerCase().replace(/\s/g, '-');
+          const urlSafeCategory = toUrlSafePath(category);
 
           return categoryLink ? (
             <Link to={`/categories/${urlSafeCategory}`} key={urlSafeCategory}>
