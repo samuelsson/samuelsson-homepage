@@ -15,60 +15,49 @@ export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   baseUrl: 'https://eriksamuelsson.com',
 };
 
+const defaultRemarkImages = {
+  resolve: 'gatsby-remark-images',
+  options: {
+    backgroundColor: 'transparent',
+    maxWidth: 800,
+  },
+};
+
+// Source these locations with the provided names into Gatsby GraphQL.
+const sourcedFiles = ['posts', 'thumbnails', 'images'].map((name) => ({
+  resolve: 'gatsby-source-filesystem',
+  options: {
+    path: `${__dirname}/content/${name}`,
+    name,
+  },
+}));
+
 export const plugins: GatsbyConfig['plugins'] = [
   'gatsby-plugin-sharp',
   'gatsby-transformer-sharp',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-styled-components',
   'gatsby-plugin-feed',
-  {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      path: `${__dirname}/content/posts`,
-      name: 'posts',
-    },
-  },
-  {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      path: `${__dirname}/content/thumbnails`,
-      name: 'thumbnails',
-    },
-  },
-  {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      path: `${__dirname}/content/images`,
-      name: 'images',
-    },
-  },
+  ...sourcedFiles,
   {
     resolve: 'gatsby-transformer-remark',
     options: {
       plugins: [
         'gatsby-remark-prismjs',
         'gatsby-remark-copy-linked-files',
-        {
-          resolve: 'gatsby-remark-images',
-          options: {
-            backgroundColor: 'transparent',
-            maxWidth: 800,
-          },
-        },
+        { ...defaultRemarkImages },
       ],
     },
   },
   {
     resolve: 'gatsby-plugin-mdx',
     options: {
+      defaultLayouts: {
+        default: require.resolve('./src/components/Layout.tsx'),
+      },
       gatsbyRemarkPlugins: [
-        {
-          resolve: 'gatsby-remark-images',
-          options: {
-            backgroundColor: 'transparent',
-            maxWidth: 800,
-          },
-        },
+        'gatsby-remark-prismjs',
+        { ...defaultRemarkImages },
       ],
     },
   },

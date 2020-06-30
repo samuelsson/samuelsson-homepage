@@ -1,0 +1,17 @@
+import { graphql } from 'gatsby';
+import PostList from '../components/PostList';
+import Seo from '../components/Seo';
+
+<Seo pageTitle="Blog posts" />
+
+# Blog posts
+
+<PostList posts={props.data.allMarkdownRemark.nodes} />
+
+export const query = graphql`
+  query BlogPageQuery {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      ...PostListItem
+    }
+  }
+`;
