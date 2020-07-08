@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          token: ${{ secrets.SUBMODULE_CONTENT_PULL_KEY }}
           submodules: 'recursive'
 
       - name: Use Node.js
