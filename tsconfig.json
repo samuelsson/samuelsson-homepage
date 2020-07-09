@@ -11,12 +11,6 @@
     "skipLibCheck": true,
     "removeComments": true
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules/**",
-    "public"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules/**", "public"]
 }
-
