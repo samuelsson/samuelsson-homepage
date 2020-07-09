@@ -10,7 +10,7 @@
     "serve": "gatsby serve",
     "disable-telemetry": "gatsby telemetry --disable",
     "lint": "tsc --noEmit && eslint ./ --ext .js,.ts,.tsx",
-    "release": "yarn release && git push --follow-tags origin master"
+    "release": "yarn standard-version && git push --follow-tags origin master"
   },
   "repository": {
     "type": "git",
