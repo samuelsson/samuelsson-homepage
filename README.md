@@ -14,18 +14,19 @@ For those having permissions to the content submodule it can be updated locally 
 If you don't have access or want to add your own content it is easily achieved with the following directory structure:
 
 ```
-/
-|-- content
-|    |-- posts
-|    |    |-- blog-post-1.md
-|    |    |-- post-number-2.mdx
-|    |    +-- post3
-|    |    |    |-- index.mdx
-|    |    |    +-- image.jpg
-|    +-- thumbnails
-|         |-- git.png
-|         |-- npm.png
-|         +-- typescript.png
+.
+└── content
+    ├── posts
+    │   ├── blog-post-1.md
+    │   ├── post2.mdx
+    │   └── third-blog-post
+    │       ├── index.md
+    │       ├── image.png
+    │       └── image2.png
+    └── thumbnails
+        ├── git.png
+        ├── typescript.png
+        └── yarn.png
 ```
 
 Posts file name need to be hyphenated because they will also become the url path to the post. The reason for this not being transformed automatically is that sometimes the path need to differ from the actual title of the post.
@@ -48,6 +49,7 @@ Here is the normal markdown content of the post.
 ```
 
 - No top-level header needed because `title` will become `h1` at the top.
+- Date formatted in ISO 8601 - YYYY-MM-DD
 - Preferably have only one category (wider than tags)
 - You can have multiple tags (more specific than category)
 
