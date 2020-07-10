@@ -6,11 +6,11 @@ import Seo from '../components/Seo';
 
 # Blog posts
 
-<PostList posts={props.data.allMarkdownRemark.nodes} />
+<PostList posts={props.data.allMdx.nodes} />
 
 export const query = graphql`
   query BlogPageQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
       ...PostListItem
     }
   }

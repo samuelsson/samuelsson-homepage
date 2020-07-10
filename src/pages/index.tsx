@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import AllMarkdownRemark from '../types/AllMarkdownRemark';
+import AllMdx from '../types/AllMdx';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 
 interface IndexPageProps {
   data: {
-    allMarkdownRemark: AllMarkdownRemark;
+    allMdx: AllMdx;
   };
 }
 
@@ -25,17 +25,14 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
     </section>
     <section className="latest-posts">
       <h2>Latest posts</h2>
-      <PostList posts={data.allMarkdownRemark.nodes} />
+      <PostList posts={data.allMdx.nodes} />
     </section>
   </Layout>
 );
 
 export const query = graphql`
   query IndexPageQuery {
-    allMarkdownRemark(
-      limit: 5
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
+    allMdx(limit: 5, sort: { order: DESC, fields: [frontmatter___date] }) {
       ...PostListItem
     }
   }

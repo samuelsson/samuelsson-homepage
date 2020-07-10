@@ -3,20 +3,20 @@ import { graphql, Link } from 'gatsby';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
-import AllMarkdownRemark from '../types/AllMarkdownRemark';
+import AllMdx from '../types/AllMdx';
 
 interface TagProps {
   pathContext: {
     tag: string;
   };
   data: {
-    allMarkdownRemark: AllMarkdownRemark;
+    allMdx: AllMdx;
   };
 }
 
 const Tag: React.FC<TagProps> = ({ pathContext, data }) => {
   const { tag } = pathContext;
-  const { nodes } = data.allMarkdownRemark;
+  const { nodes } = data.allMdx;
 
   return (
     <Layout>
@@ -32,7 +32,7 @@ const Tag: React.FC<TagProps> = ({ pathContext, data }) => {
 
 export const query = graphql`
   query TagPageQuery($tag: String) {
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {

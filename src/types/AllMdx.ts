@@ -15,7 +15,7 @@ export interface Frontmatter {
 }
 
 export interface Node {
-  html: string;
+  body: string;
   fields: {
     slug: string;
   };
@@ -23,7 +23,7 @@ export interface Node {
   frontmatter: Frontmatter;
 }
 
-export default interface AllMarkdownRemark {
+export default interface AllMdx {
   totalCount: number;
   nodes: Node[];
 }

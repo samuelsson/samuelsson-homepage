@@ -1,17 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled from 'styled-components';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import PostHeader from '../components/PostHeader';
 import { colors } from '../styles';
 import { htmlToText } from '../helpers';
-import { Node } from '../types/AllMarkdownRemark';
+import { Node } from '../types/AllMdx';
 
 interface PostProps {
   data: {
-    markdownRemark: Node;
+    mdx: Node;
   };
 }
 
@@ -23,13 +24,13 @@ const StyledArticle = styled.article`
 `;
 
 const Post: React.FC<PostProps> = ({ data }) => {
-  const { markdownRemark } = data;
+  const { mdx } = data;
   const {
     frontmatter,
-    html,
+    body,
     excerpt,
     fields: { slug },
-  } = markdownRemark;
+  } = mdx;
   const { title, date, tags, categories, thumbnail } = frontmatter;
   const thumbnailImage = thumbnail && thumbnail.childImageSharp.fixed;
 
@@ -59,8 +60,7 @@ const Post: React.FC<PostProps> = ({ data }) => {
             )
           }
         />
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <MDXRenderer>{body}</MDXRenderer>
       </StyledArticle>
     </Layout>
   );
@@ -68,9 +68,9 @@ const Post: React.FC<PostProps> = ({ data }) => {
 
 export const pageQuery = graphql`
   query BlogPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      excerpt(pruneLength: 250, format: HTML)
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
+      excerpt(pruneLength: 250)
       fields {
         slug
       }

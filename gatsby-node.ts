@@ -2,10 +2,10 @@ import { GatsbyNode } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { resolve } from 'path';
 import { toUrlSafePath } from './src/helpers';
-import AllMarkdownRemark from './src/types/AllMarkdownRemark';
+import allMdx from './src/types/AllMdx';
 
 interface AllMarkdownData {
-  allMarkdownRemark: AllMarkdownRemark;
+  allMdx: allMdx;
 }
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({
@@ -15,7 +15,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
 }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     const slug = createFilePath({
       node,
       getNode,
@@ -45,7 +45,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const categorySet: Set<string> = new Set();
 
   const createPosts = (data: AllMarkdownData): void => {
-    data.allMarkdownRemark.nodes.forEach((node) => {
+    data.allMdx.nodes.forEach((node) => {
       const { tags = [], categories = [] } = node.frontmatter;
       const { slug } = node.fields;
 
@@ -67,7 +67,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     data?: AllMarkdownData;
   } = await graphql(`
     {
-      allMarkdownRemark {
+      allMdx {
         nodes {
           fields {
             slug

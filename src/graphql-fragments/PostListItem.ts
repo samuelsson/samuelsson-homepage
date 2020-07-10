@@ -1,10 +1,10 @@
 import { graphql } from 'gatsby';
 
 export const PostListItem = graphql`
-  fragment PostListItem on MarkdownRemarkConnection {
+  fragment PostListItem on MdxConnection {
     totalCount
     nodes {
-      excerpt(pruneLength: 240, format: HTML)
+      excerpt(pruneLength: 240)
       fields {
         slug
       }

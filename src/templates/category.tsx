@@ -3,20 +3,20 @@ import { graphql, Link } from 'gatsby';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
-import AllMarkdownRemark from '../types/AllMarkdownRemark';
+import AllMdx from '../types/AllMdx';
 
 interface CategoryProps {
   pathContext: {
     category: string;
   };
   data: {
-    allMarkdownRemark: AllMarkdownRemark;
+    allMdx: AllMdx;
   };
 }
 
 const Category: React.FC<CategoryProps> = ({ pathContext, data }) => {
   const { category } = pathContext;
-  const { nodes } = data.allMarkdownRemark;
+  const { nodes } = data.allMdx;
 
   return (
     <Layout>
@@ -32,7 +32,7 @@ const Category: React.FC<CategoryProps> = ({ pathContext, data }) => {
 
 export const query = graphql`
   query CategoryPageQuery($category: String) {
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { categories: { in: [$category] } } }
     ) {

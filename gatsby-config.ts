@@ -15,6 +15,8 @@ export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   baseUrl: 'https://eriksamuelsson.com',
 };
 
+// `gatsby-remark-images` needs to be in both in `gatsbyRemarkPlugins` and root
+// plugins array to work correctly.
 const defaultRemarkImages = {
   resolve: 'gatsby-remark-images',
   options: {
@@ -24,10 +26,10 @@ const defaultRemarkImages = {
 };
 
 // Source these locations with the provided names into Gatsby GraphQL.
-const sourcedFiles = ['posts', 'thumbnails', 'images'].map((name) => ({
+const sourcedContent = ['posts', 'thumbnails', 'images'].map((name) => ({
   resolve: 'gatsby-source-filesystem',
   options: {
-    path: `${__dirname}/content/${name}`,
+    path: `${__dirname}/content/${name}/`,
     name,
   },
 }));
@@ -37,28 +39,17 @@ export const plugins: GatsbyConfig['plugins'] = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-styled-components',
-  'gatsby-plugin-feed',
-  ...sourcedFiles,
-  {
-    resolve: 'gatsby-transformer-remark',
-    options: {
-      plugins: [
-        'gatsby-remark-prismjs',
-        'gatsby-remark-copy-linked-files',
-        { ...defaultRemarkImages },
-      ],
-    },
-  },
+  'gatsby-plugin-feed-mdx',
+  defaultRemarkImages,
+  ...sourcedContent,
   {
     resolve: 'gatsby-plugin-mdx',
     options: {
+      extensions: [`.mdx`, `.md`],
       defaultLayouts: {
         default: require.resolve('./src/components/Layout.tsx'),
       },
-      gatsbyRemarkPlugins: [
-        'gatsby-remark-prismjs',
-        { ...defaultRemarkImages },
-      ],
+      gatsbyRemarkPlugins: ['gatsby-remark-prismjs', defaultRemarkImages],
     },
   },
   {

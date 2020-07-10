@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { colors, mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 import { htmlToText } from '../helpers';
-import { Node } from '../types/AllMarkdownRemark';
+import { Node } from '../types/AllMdx';
 
 interface PostListProps {
   posts: Node[];

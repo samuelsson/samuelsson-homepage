@@ -64,7 +64,6 @@ public
 # IDEs
 .idea
 .vscode
-schema.graphql
 
 # Yarn
 yarn-error.log
