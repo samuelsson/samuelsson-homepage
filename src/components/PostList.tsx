@@ -7,9 +7,9 @@ import PostMeta from './PostMeta';
 import { htmlToText } from '../helpers';
 import { Node } from '../types/AllMdx';
 
-interface PostListProps {
+type PostListProps = {
   posts: Node[];
-}
+};
 
 const StyledPostList = styled.div`
   margin: 0;
@@ -55,7 +55,7 @@ const StyledImg = styled(Img)`
   margin-right: 1rem;
 `;
 
-const PostList: React.FC<PostListProps> = ({ posts }) => (
+const PostList = ({ posts }: PostListProps): JSX.Element => (
   <StyledPostList className="posts">
     {posts.map((post) => {
       const {

@@ -10,11 +10,11 @@ import { colors } from '../styles';
 import { htmlToText } from '../helpers';
 import { Node } from '../types/AllMdx';
 
-interface PostProps {
+type PostProps = {
   data: {
     mdx: Node;
   };
-}
+};
 
 const StyledArticle = styled.article`
   h2 {
@@ -23,7 +23,7 @@ const StyledArticle = styled.article`
   }
 `;
 
-const Post: React.FC<PostProps> = ({ data }) => {
+const Post = ({ data }: PostProps): JSX.Element => {
   const { mdx } = data;
   const {
     frontmatter,

@@ -4,13 +4,13 @@ import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import { toUrlSafePath } from '../helpers';
 
-interface TagsProps {
+type TagsProps = {
   pathContext: {
     tags: string[];
   };
-}
+};
 
-const Tags: React.FC<TagsProps> = ({ pathContext }) => {
+const Tags = ({ pathContext }: TagsProps): JSX.Element => {
   const { tags } = pathContext;
 
   return (

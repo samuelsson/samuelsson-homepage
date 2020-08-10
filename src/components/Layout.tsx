@@ -5,9 +5,9 @@ import { mediaQueries, variables } from '../styles';
 import Header from './Header';
 import Footer from './Footer';
 
-interface FooterProps {
+type FooterProps = {
   children: React.ReactNode;
-}
+};
 
 // Used for sticky footer
 const StyledLayout = styled.div`
@@ -31,7 +31,7 @@ const StyledMain = styled.main`
   }
 `;
 
-const Layout: React.FC<FooterProps> = ({ children }): JSX.Element => (
+const Layout = ({ children }: FooterProps): JSX.Element => (
   <StyledLayout>
     <Header />
     <StyledMainContainer>

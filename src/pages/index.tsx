@@ -4,13 +4,13 @@ import AllMdx from '../types/AllMdx';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 
-interface IndexPageProps {
+type IndexPageProps = {
   data: {
     allMdx: AllMdx;
   };
-}
+};
 
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
+const IndexPage = ({ data }: IndexPageProps): JSX.Element => (
   <Layout>
     <section className="intro">
       <h1>Hej!</h1>

@@ -4,13 +4,13 @@ import { colors, mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 import { toUrlSafePath } from '../helpers';
 
-interface PostHeaderProps {
+type PostHeaderProps = {
   title: string;
   date: string;
   tags?: string[];
   categories?: string[];
   thumbnail: React.ReactNode;
-}
+};
 
 const StyledPostHeader = styled.header`
   text-align: center;
@@ -46,13 +46,13 @@ const StyledTag = styled.a`
   }
 `;
 
-const PostHeader: React.FC<PostHeaderProps> = ({
+const PostHeader = ({
   title,
   date,
   tags = [],
   categories,
   thumbnail,
-}): JSX.Element => (
+}: PostHeaderProps): JSX.Element => (
   <StyledPostHeader>
     {thumbnail}
     <StyledTitle>{title}</StyledTitle>

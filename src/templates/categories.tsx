@@ -4,13 +4,13 @@ import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import { toUrlSafePath } from '../helpers';
 
-interface CategoryProps {
+type CategoryProps = {
   pathContext: {
     categories: string[];
   };
-}
+};
 
-const Categories: React.FC<CategoryProps> = ({ pathContext }) => {
+const Categories = ({ pathContext }: CategoryProps): JSX.Element => {
   const { categories } = pathContext;
 
   return (

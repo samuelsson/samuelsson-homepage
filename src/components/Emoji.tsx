@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface EmojiProps {
+type EmojiProps = {
   emoji: string;
   label: string;
-}
+};
 
-const Emoji: React.FC<EmojiProps> = ({ emoji, label }): JSX.Element => (
+const Emoji = ({ emoji, label }: EmojiProps): JSX.Element => (
   <span className="emoji" role="img" aria-label={label}>
     {emoji}
   </span>

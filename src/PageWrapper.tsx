@@ -5,9 +5,7 @@ import 'typeface-montserrat';
 import Seo from './components/Seo';
 import GlobalStyles from './GlobalStyles';
 
-const PageWrapper: React.FC<WrapPageElementBrowserArgs> = ({
-  element,
-}): JSX.Element => (
+const PageWrapper = ({ element }: WrapPageElementBrowserArgs): JSX.Element => (
   <>
     <Normalize />
     <GlobalStyles />

@@ -8,19 +8,19 @@ interface PostSeo {
   tags?: string[];
 }
 
-interface SeoProps {
+type SeoProps = {
   pageTitle?: string;
   pageDescription?: string;
   path?: string;
   postSEO?: PostSeo;
-}
+};
 
-const Seo: React.FC<SeoProps> = ({
+const Seo = ({
   pageTitle,
   pageDescription,
   path,
   postSEO,
-}): JSX.Element => {
+}: SeoProps): JSX.Element => {
   const { site } = useStaticQuery(
     graphql`
       query {

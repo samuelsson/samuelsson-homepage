@@ -5,16 +5,16 @@ import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import AllMdx from '../types/AllMdx';
 
-interface CategoryProps {
+type CategoryProps = {
   pathContext: {
     category: string;
   };
   data: {
     allMdx: AllMdx;
   };
-}
+};
 
-const Category: React.FC<CategoryProps> = ({ pathContext, data }) => {
+const Category = ({ pathContext, data }: CategoryProps): JSX.Element => {
   const { category } = pathContext;
   const { nodes } = data.allMdx;
 

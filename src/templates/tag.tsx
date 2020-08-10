@@ -5,16 +5,16 @@ import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import AllMdx from '../types/AllMdx';
 
-interface TagProps {
+type TagProps = {
   pathContext: {
     tag: string;
   };
   data: {
     allMdx: AllMdx;
   };
-}
+};
 
-const Tag: React.FC<TagProps> = ({ pathContext, data }) => {
+const Tag = ({ pathContext, data }: TagProps): JSX.Element => {
   const { tag } = pathContext;
   const { nodes } = data.allMdx;
 

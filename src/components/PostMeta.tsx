@@ -5,11 +5,11 @@ import { colors, mediaQueries } from '../styles';
 import Emoji from './Emoji';
 import { toUrlSafePath } from '../helpers';
 
-interface PostMetaProps {
+type PostMetaProps = {
   date: string;
   categories?: string[];
   categoryLink?: boolean;
-}
+};
 
 const StyledPostMeta = styled.div`
   padding: 0.5rem 0;
@@ -55,11 +55,11 @@ const StyledPostMeta = styled.div`
   }
 `;
 
-const PostMeta: React.FC<PostMetaProps> = ({
+const PostMeta = ({
   date,
   categories,
   categoryLink,
-}): JSX.Element => (
+}: PostMetaProps): JSX.Element => (
   <StyledPostMeta>
     <span>
       <Emoji emoji="📆" label="Date published" />
