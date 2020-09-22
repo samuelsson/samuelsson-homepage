@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/samuelsson/eriksamuelsson/compare/v1.0.2...v1.1.0) (2020-09-22)
+
+
+### Features
+
+* 🎸 add an info box with different background colors ([581401a](https://github.com/samuelsson/eriksamuelsson/commit/581401a80ebd80cf89d00df18a94038a22f5e564))
+
 ### [1.0.2](https://github.com/samuelsson/eriksamuelsson/compare/v1.0.1...v1.0.2) (2020-07-09)
 
 ### [1.0.1](https://github.com/samuelsson/eriksamuelsson/compare/v1.0.0...v1.0.1) (2020-07-09)
