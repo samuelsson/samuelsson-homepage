@@ -50,7 +50,7 @@ const StyledExcerpt = styled.div`
   }
 `;
 
-const StyledImg = styled(Img)`
+const ThumbnailWrapper = styled.div`
   flex-shrink: 0;
   margin-right: 1rem;
 `;
@@ -68,7 +68,11 @@ const PostList = ({ posts }: PostListProps): JSX.Element => (
 
       return (
         <StyledLink to={slug} key={slug}>
-          {thumbnailImage && <StyledImg fixed={thumbnailImage} />}
+          {thumbnailImage && (
+            <ThumbnailWrapper>
+              <Img fixed={thumbnailImage} />
+            </ThumbnailWrapper>
+          )}
           <div>
             <b>{title}</b>
             <PostMeta date={date} categories={categories} />
