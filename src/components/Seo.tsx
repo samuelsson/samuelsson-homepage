@@ -15,30 +15,30 @@ type SeoProps = {
   postSEO?: PostSeo;
 };
 
+const siteMetadataQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        description
+        tagLine
+        author
+        baseUrl
+        social {
+          twitter
+        }
+      }
+    }
+  }
+`;
+
 const Seo = ({
   pageTitle,
   pageDescription,
   path,
   postSEO,
 }: SeoProps): JSX.Element => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            tagLine
-            author
-            baseUrl
-            social {
-              twitter
-            }
-          }
-        }
-      }
-    `
-  );
+  const { site } = useStaticQuery(siteMetadataQuery);
 
   const {
     title,

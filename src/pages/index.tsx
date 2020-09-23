@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import AllMdx from '../types/AllMdx';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
+import Seo from '../components/Seo';
 
 type IndexPageProps = {
   data: {
@@ -12,6 +13,7 @@ type IndexPageProps = {
 
 const IndexPage = ({ data }: IndexPageProps): JSX.Element => (
   <Layout>
+    <Seo />
     <section className="intro">
       <h1>Hej!</h1>
       <p>
