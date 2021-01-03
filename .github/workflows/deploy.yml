@@ -24,7 +24,7 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Disable telemetry
-        run: yarn disable-telemetry
+        run: yarn run gatsby telemetry --disable
 
       - name: Lint
         run: yarn lint
