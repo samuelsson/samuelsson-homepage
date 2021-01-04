@@ -16,16 +16,12 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
   const { createNodeField } = actions;
 
   if (node.internal.type === 'Mdx') {
-    const slug = createFilePath({
-      node,
-      getNode,
-      basePath: 'src/content/posts',
-    });
+    const value = createFilePath({ node, getNode });
 
     createNodeField({
-      node,
       name: 'slug',
-      value: slug,
+      node,
+      value,
     });
   }
 };
@@ -40,6 +36,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const categoriesTemplate = resolve('src/templates/categories.tsx');
   const tagTemplate = resolve('src/templates/tag.tsx');
   const tagsTemplate = resolve('src/templates/tags.tsx');
+  const pageLayout = resolve('src/templates/page.tsx');
 
   const tagSet: Set<string> = new Set();
   const categorySet: Set<string> = new Set();
@@ -62,12 +59,26 @@ export const createPages: GatsbyNode['createPages'] = async ({
     });
   };
 
+  const createSitePage = (data: AllMarkdownData): void => {
+    data.allMdx.nodes.forEach((node) => {
+      const { slug } = node.fields;
+
+      createPage({
+        path: slug,
+        component: pageLayout,
+        context: {
+          slug,
+        },
+      });
+    });
+  };
+
   const posts: {
     errors?: any;
     data?: AllMarkdownData;
   } = await graphql(`
     {
-      allMdx {
+      allMdx(filter: { fileAbsolutePath: { regex: "/content/posts/" } }) {
         nodes {
           fields {
             slug
@@ -86,6 +97,28 @@ export const createPages: GatsbyNode['createPages'] = async ({
     // reject(posts.errors);
   } else if (posts.data) {
     createPosts(posts.data);
+  }
+
+  const pages: {
+    errors?: any;
+    data?: AllMarkdownData;
+  } = await graphql(`
+    {
+      allMdx(filter: { fileAbsolutePath: { regex: "/content/pages/" } }) {
+        nodes {
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  if (pages.errors) {
+    // TODO: handle errors perhaps
+    // reject(posts.errors);
+  } else if (pages.data) {
+    createSitePage(pages.data);
   }
 
   const allTags = Array.from(tagSet);

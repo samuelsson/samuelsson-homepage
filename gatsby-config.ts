@@ -26,13 +26,15 @@ const defaultRemarkImages = {
 };
 
 // Source these locations with the provided names into Gatsby GraphQL.
-const sourcedContent = ['posts', 'thumbnails', 'images'].map((name) => ({
-  resolve: 'gatsby-source-filesystem',
-  options: {
-    path: `${__dirname}/content/${name}/`,
-    name,
-  },
-}));
+const sourcedContent = ['posts', 'thumbnails', 'images', 'pages'].map(
+  (name) => ({
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      path: `${__dirname}/content/${name}/`,
+      name,
+    },
+  })
+);
 
 export const plugins: GatsbyConfig['plugins'] = [
   'gatsby-plugin-sharp',

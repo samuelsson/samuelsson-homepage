@@ -1,44 +1,28 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
-import AllMdx from '../types/AllMdx';
 
 type CategoryProps = {
   pathContext: {
     category: string;
   };
-  data: {
-    allMdx: AllMdx;
-  };
 };
 
-const Category = ({ pathContext, data }: CategoryProps): JSX.Element => {
+const Category = ({ pathContext }: CategoryProps): JSX.Element => {
   const { category } = pathContext;
-  const { nodes } = data.allMdx;
 
   return (
     <Layout>
       <Seo pageTitle={`Posts in the category ${category}`} />
       <h1>{`Posts categorized as ${category}`}</h1>
-      <PostList posts={nodes} />
+      <PostList category={category} />
       <p>
         <Link to="/categories">All categories</Link>
       </p>
     </Layout>
   );
 };
-
-export const query = graphql`
-  query CategoryPageQuery($category: String) {
-    allMdx(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { categories: { in: [$category] } } }
-    ) {
-      ...PostListItem
-    }
-  }
-`;
 
 export default Category;

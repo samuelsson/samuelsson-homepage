@@ -1,17 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import AllMdx from '../types/AllMdx';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import Seo from '../components/Seo';
 
-type IndexPageProps = {
-  data: {
-    allMdx: AllMdx;
-  };
-};
-
-const IndexPage = ({ data }: IndexPageProps): JSX.Element => (
+const IndexPage = (): JSX.Element => (
   <Layout>
     <Seo />
     <section className="intro">
@@ -27,17 +19,9 @@ const IndexPage = ({ data }: IndexPageProps): JSX.Element => (
     </section>
     <section className="latest-posts">
       <h2>Latest posts</h2>
-      <PostList posts={data.allMdx.nodes} />
+      <PostList limit={5} />
     </section>
   </Layout>
 );
-
-export const query = graphql`
-  query IndexPageQuery {
-    allMdx(limit: 5, sort: { order: DESC, fields: [frontmatter___date] }) {
-      ...PostListItem
-    }
-  }
-`;
 
 export default IndexPage;

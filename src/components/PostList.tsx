@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
+import AllMdx, { Node } from '../types/AllMdx';
 import { colors, mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 import { htmlToText } from '../helpers';
-import { Node } from '../types/AllMdx';
 
 type PostListProps = {
-  posts: Node[];
+  limit?: number;
+  category?: string;
+  tag?: string;
+};
+
+type PostData = {
+  allMdx: AllMdx;
 };
 
 const StyledPostList = styled.div`
@@ -55,33 +61,73 @@ const ThumbnailWrapper = styled.div`
   margin-right: 1rem;
 `;
 
-const PostList = ({ posts }: PostListProps): JSX.Element => (
-  <StyledPostList className="posts">
-    {posts.map((post) => {
-      const {
-        frontmatter: { title, date, thumbnail, categories },
-        excerpt,
-        fields: { slug },
-      } = post;
+const PostList = ({ limit, category, tag }: PostListProps): JSX.Element => {
+  const data: PostData = useStaticQuery(graphql`
+    query {
+      allMdx(
+        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
+        ...PostListItem
+      }
+    }
+  `);
 
-      const thumbnailImage = thumbnail && thumbnail.childImageSharp.fixed;
+  /*  useStaticQuery doesn't support variables so we fetch all and loop through
+      them. If you have a lot of posts you need to separate the queries into
+      page-level queries on each page (e.g. one query on the category page).
 
-      return (
-        <StyledLink to={slug} key={slug}>
-          {thumbnailImage && (
-            <ThumbnailWrapper>
-              <Img fixed={thumbnailImage} />
-            </ThumbnailWrapper>
-          )}
-          <div>
-            <b>{title}</b>
-            <PostMeta date={date} categories={categories} />
-            <StyledExcerpt>{htmlToText(excerpt)}</StyledExcerpt>
-          </div>
-        </StyledLink>
-      );
-    })}
-  </StyledPostList>
-);
+      Otherwise something like this would be nice:
+
+      ```
+      allMdx(
+        filter: { frontmatter: { categories: { in: [$category] } } }
+        limit: $limit
+      ) { ... }
+      ```
+   */
+  const filteredPosts = (): Node[] => {
+    return data.allMdx.nodes
+      .filter((post) => {
+        if (category) {
+          return post.frontmatter.categories?.includes(category);
+        }
+        if (tag) {
+          return post.frontmatter.tags?.includes(tag);
+        }
+        return true;
+      })
+      .slice(0, limit);
+  };
+
+  return (
+    <StyledPostList className="posts">
+      {filteredPosts().map((post) => {
+        const {
+          frontmatter: { title, date, thumbnail, categories },
+          excerpt,
+          fields: { slug },
+        } = post;
+
+        const thumbnailImage = thumbnail && thumbnail.childImageSharp.fixed;
+
+        return (
+          <StyledLink to={slug} key={slug}>
+            {thumbnailImage && (
+              <ThumbnailWrapper>
+                <Img fixed={thumbnailImage} />
+              </ThumbnailWrapper>
+            )}
+            <div>
+              <b>{title}</b>
+              <PostMeta date={date} categories={categories} />
+              <StyledExcerpt>{htmlToText(excerpt)}</StyledExcerpt>
+            </div>
+          </StyledLink>
+        );
+      })}
+    </StyledPostList>
+  );
+};
 
 export default PostList;
