@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/samuelsson/eriksamuelsson/compare/v1.1.5...v1.2.0) (2021-01-04)
+
+
+### Features
+
+* 🎸 pages are now moved to content directory ([2d5f695](https://github.com/samuelsson/eriksamuelsson/commit/2d5f69585450d9a55962a30b90fbef97878f07c3))
+
 ### [1.1.5](https://github.com/samuelsson/eriksamuelsson/compare/v1.1.4...v1.1.5) (2021-01-03)
 
 ### [1.1.4](https://github.com/samuelsson/eriksamuelsson/compare/v1.1.3...v1.1.4) (2021-01-03)
