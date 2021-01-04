@@ -36,22 +36,45 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const categoriesTemplate = resolve('src/templates/categories.tsx');
   const tagTemplate = resolve('src/templates/tag.tsx');
   const tagsTemplate = resolve('src/templates/tags.tsx');
-  const pageLayout = resolve('src/templates/page.tsx');
+  const pageTemplate = resolve('src/templates/page.tsx');
 
   const tagSet: Set<string> = new Set();
   const categorySet: Set<string> = new Set();
 
-  const createPosts = (data: AllMarkdownData): void => {
-    data.allMdx.nodes.forEach((node) => {
+  const createContentPages = async (type: 'pages' | 'posts'): Promise<void> => {
+    const posts: {
+      errors?: any;
+      data?: AllMarkdownData;
+    } = await graphql(`
+      {
+        allMdx(filter: { fileAbsolutePath: { regex: "/content/${type}/" } }) {
+          nodes {
+            fields {
+              slug
+            }
+            frontmatter {
+              tags
+              categories
+            }
+          }
+        }
+      }
+    `);
+
+    if (posts.errors) {
+      // eslint-disable-next-line no-console
+      console.log(`Error getting content for ${type}!`);
+    }
+    posts.data?.allMdx.nodes.forEach((node) => {
       const { tags = [], categories = [] } = node.frontmatter;
       const { slug } = node.fields;
 
-      tags.forEach((tag) => tagSet.add(tag));
-      categories.forEach((category) => categorySet.add(category));
+      tags?.forEach((tag) => tagSet.add(tag));
+      categories?.forEach((category) => categorySet.add(category));
 
       createPage({
         path: slug,
-        component: postTemplate,
+        component: type === 'pages' ? pageTemplate : postTemplate,
         context: {
           slug,
         },
@@ -59,67 +82,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
     });
   };
 
-  const createSitePage = (data: AllMarkdownData): void => {
-    data.allMdx.nodes.forEach((node) => {
-      const { slug } = node.fields;
-
-      createPage({
-        path: slug,
-        component: pageLayout,
-        context: {
-          slug,
-        },
-      });
-    });
-  };
-
-  const posts: {
-    errors?: any;
-    data?: AllMarkdownData;
-  } = await graphql(`
-    {
-      allMdx(filter: { fileAbsolutePath: { regex: "/content/posts/" } }) {
-        nodes {
-          fields {
-            slug
-          }
-          frontmatter {
-            tags
-            categories
-          }
-        }
-      }
-    }
-  `);
-
-  if (posts.errors) {
-    // TODO: handle errors perhaps
-    // reject(posts.errors);
-  } else if (posts.data) {
-    createPosts(posts.data);
-  }
-
-  const pages: {
-    errors?: any;
-    data?: AllMarkdownData;
-  } = await graphql(`
-    {
-      allMdx(filter: { fileAbsolutePath: { regex: "/content/pages/" } }) {
-        nodes {
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  `);
-
-  if (pages.errors) {
-    // TODO: handle errors perhaps
-    // reject(posts.errors);
-  } else if (pages.data) {
-    createSitePage(pages.data);
-  }
+  // Create static pages from content directory
+  await createContentPages('pages');
+  await createContentPages('posts');
 
   const allTags = Array.from(tagSet);
   const allCategories = Array.from(categorySet);
