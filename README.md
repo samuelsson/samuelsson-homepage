@@ -11,20 +11,25 @@ The content, such as blog posts, is a submodule of a private repository and can 
 
 For those having permissions to the content submodule it can be updated locally with `git submodule update --remote`. When there are new content the submodule hash will be updated and added as new changes to git in this repo. This can then be committed and pushed as normal.
 
-If it's the first time cloning the project you need to do it recursively for the submodules to be fetched as well, `git clone --recursive <project url>`. Or if it the project is already cloned, you can do it with `git submodule update --init --recursive`.
+If it's the first time cloning the project you need to do it recursively for the submodules to be fetched as well, `git clone --recursive <project url>`. Or if the project is already cloned, you can do it with `git submodule update --init --recursive`.
 
 If you don't have access or want to add your own content it is easily achieved with the following directory structure:
 
 ```
 .
 └── content
+    ├── pages
+    │   ├── 404.mdx
+    │   ├── about.mdx
+    │   ├── blog.mdx
+    │   └── contact.mdx
     ├── posts
-    │   ├── blog-post-1.md
-    │   ├── post2.mdx
-    │   └── third-blog-post
-    │       ├── index.md
-    │       ├── image.png
-    │       └── image2.png
+    │   ├── blog-post-1.md
+    │   ├── post2.mdx
+    │   └── third-blog-post
+    │       ├── index.md
+    │       ├── image.png
+    │       └── image2.png
     └── thumbnails
         ├── git.png
         ├── typescript.png
