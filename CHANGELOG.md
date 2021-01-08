@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/samuelsson/eriksamuelsson/compare/v1.2.1...v1.3.0) (2021-01-08)
+
+
+### Features
+
+* 🎸 add privacy link in the footer ([715eb7c](https://github.com/samuelsson/eriksamuelsson/commit/715eb7cf77e3aa42758efbe4a6b11acf8d318962))
+
 ### [1.2.1](https://github.com/samuelsson/eriksamuelsson/compare/v1.2.0...v1.2.1) (2021-01-04)
 
 ## [1.2.0](https://github.com/samuelsson/eriksamuelsson/compare/v1.1.5...v1.2.0) (2021-01-04)
