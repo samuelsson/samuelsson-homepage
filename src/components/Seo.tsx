@@ -61,29 +61,27 @@ const Seo = ({
       <meta property="og:locale" content="en_US" />
 
       {postSEO && <meta property="article:author" content={author} />}
-      {postSEO && (
+      {postSEO?.published && (
         <meta
           property="article:published_time"
           content={new Date(postSEO.published).toISOString()}
         />
       )}
-      {postSEO && postSEO.updated && (
-        <meta
-          property="article:modified_time"
-          content={new Date(postSEO.updated).toISOString()}
-        />
+      {postSEO?.updated && (
+        <>
+          <meta
+            property="article:modified_time"
+            content={new Date(postSEO.updated).toISOString()}
+          />
+          <meta
+            property="og:updated_time"
+            content={new Date(postSEO.updated).toISOString()}
+          />
+        </>
       )}
-      {postSEO && postSEO.updated && (
-        <meta
-          property="og:updated_time"
-          content={new Date(postSEO.updated).toISOString()}
-        />
-      )}
-      {postSEO &&
-        postSEO.tags &&
-        postSEO.tags.map((tag) => (
-          <meta key={tag} property="article:tag" content={tag} />
-        ))}
+      {postSEO?.tags?.map((tag) => (
+        <meta key={tag} property="article:tag" content={tag} />
+      ))}
     </Helmet>
   );
 };
