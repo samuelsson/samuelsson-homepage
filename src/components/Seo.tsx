@@ -24,9 +24,6 @@ const siteMetadataQuery = graphql`
         tagLine
         author
         baseUrl
-        social {
-          twitter
-        }
       }
     }
   }
@@ -40,14 +37,7 @@ const Seo = ({
 }: SeoProps): JSX.Element => {
   const { site } = useStaticQuery(siteMetadataQuery);
 
-  const {
-    title,
-    description,
-    tagLine,
-    author,
-    baseUrl,
-    social,
-  } = site.siteMetadata;
+  const { title, description, tagLine, author, baseUrl } = site.siteMetadata;
   const metaDescription = pageDescription || description;
   const metaTitle = pageTitle || title;
   const metaUrl = path ? `${baseUrl}${path}` : baseUrl;
@@ -94,12 +84,6 @@ const Seo = ({
         postSEO.tags.map((tag) => (
           <meta key={tag} property="article:tag" content={tag} />
         ))}
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={social.twitter} />
-      <meta name="twitter:site" content={social.twitter} />
-      <meta name="twitter:title" content={metaTitle} />
-      <meta name="twitter:description" content={metaDescription} />
     </Helmet>
   );
 };

@@ -5,7 +5,6 @@ export default interface SiteMetadata {
   tagLine: string;
   siteUrl: string;
   social: {
-    twitter: string;
     gitHub: string;
     linkedIn: string;
   };

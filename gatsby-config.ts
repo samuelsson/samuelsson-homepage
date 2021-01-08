@@ -8,7 +8,6 @@ export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   tagLine: 'Blog and homepage of web developer Erik Samuelsson',
   siteUrl: 'https://eriksamuelsson.com',
   social: {
-    twitter: '@ErikSamuelsson',
     gitHub: 'samuelsson',
     linkedIn: 'eriksamuelsson',
   },
