@@ -22,7 +22,8 @@ If you don't have access or want to add your own content it is easily achieved w
     │   ├── 404.mdx
     │   ├── about.mdx
     │   ├── blog.mdx
-    │   └── contact.mdx
+    │   ├── contact.mdx
+    │   └── privacy.mdx
     ├── posts
     │   ├── blog-post-1.md
     │   ├── post2.mdx

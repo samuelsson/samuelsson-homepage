@@ -6,8 +6,8 @@ import { colors, mediaQueries } from './styles';
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol';
+      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol';
     background-color: ${colors.gray[100]};
     color: ${colors.gray[800]};
     font-size: 1em;
@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     border-bottom: 1px solid ${colors.blue};
-    box-shadow: inset 0 -2px 0 ${colors.blue};
+    box-shadow: inset 0 -1px 0 ${colors.blue};
     color: inherit;
     
     transition: all 0.2s;
@@ -30,6 +30,10 @@ const GlobalStyle = createGlobalStyle`
       border-radius: 3px;
       color: ${colors.white};
       background-color: ${colors.blue};
+    }
+
+    @media ${mediaQueries.medium} {
+      box-shadow: inset 0 -2px 0 ${colors.blue};
     }
   }
   
@@ -91,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
     @media ${mediaQueries.medium} {
       padding: 2rem 2rem 2rem 5rem;
     
-      &::before{
+      &::before {
         font-family: Helvetica, Arial, sans-serif;
         content: "\\201C";
         color: ${colors.gray[600]};

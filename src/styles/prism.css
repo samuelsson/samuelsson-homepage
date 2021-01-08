@@ -58,6 +58,11 @@ pre[class*="language-"] {
     white-space: normal;
 }
 
+/* Inline code when also a link */
+:not(pre) > a > code[class*="language-"]:hover {
+    color: #fff;
+}
+
 .token.comment,
 .token.prolog,
 .token.doctype,
