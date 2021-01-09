@@ -1,5 +1,5 @@
 import { GatsbyConfig } from 'gatsby';
-import gatsbyFeedOptions from './src/helpers/gatsbyFeedOptions';
+import { gatsbyFeedOptions, gatsbySitemapOptions } from './src/helpers';
 import siteMetadata from './content/siteMetadata';
 
 export { siteMetadata };
@@ -44,9 +44,7 @@ export const plugins: GatsbyConfig['plugins'] = [
   },
   {
     resolve: 'gatsby-plugin-sitemap',
-    options: {
-      exclude: ['/404', 'dev-404-page'],
-    },
+    options: gatsbySitemapOptions,
   },
   {
     resolve: `gatsby-plugin-feed-mdx`,
