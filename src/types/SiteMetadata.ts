@@ -4,9 +4,5 @@ export default interface SiteMetadata {
   description: string;
   tagLine: string;
   siteUrl: string;
-  social: {
-    gitHub: string;
-    linkedIn: string;
-  };
   baseUrl: string;
 }

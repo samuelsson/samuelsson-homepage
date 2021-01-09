@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
+import SiteMetadata from '../types/SiteMetadata';
 
 interface PostSeo {
   published: string;
@@ -37,7 +38,13 @@ const Seo = ({
 }: SeoProps): JSX.Element => {
   const { site } = useStaticQuery(siteMetadataQuery);
 
-  const { title, description, tagLine, author, baseUrl } = site.siteMetadata;
+  const {
+    title,
+    description,
+    tagLine,
+    author,
+    baseUrl,
+  }: SiteMetadata = site.siteMetadata;
   const metaDescription = pageDescription || description;
   const metaTitle = pageTitle || title;
   const metaUrl = path ? `${baseUrl}${path}` : baseUrl;

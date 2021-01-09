@@ -31,10 +31,11 @@ If you don't have access or want to add your own content it is easily achieved w
     │       ├── index.md
     │       ├── image.png
     │       └── image2.png
-    └── thumbnails
-        ├── git.png
-        ├── typescript.png
-        └── yarn.png
+    ├── thumbnails
+    │   ├── git.png
+    │   ├── typescript.png
+    │   └── yarn.png
+    └── siteMetadata.ts (with a default export matching the interface in src/types/SiteMetadata.ts)
 ```
 
 Posts file name need to be hyphenated because they will also become the url path to the post. The reason for this not being transformed automatically is that sometimes the path need to differ from the actual title of the post.
@@ -42,7 +43,7 @@ Posts file name need to be hyphenated because they will also become the url path
 
 ### Format of post file - Frontmatter
 
-The posts are either in `.md` or `.mdx` and in their simplest form plain markdown. They however **must** have frontmatter at the absolute top of the file. Frontmatter is written inside `---` and is the metadata of the post.
+The posts are either in `.md` or `.mdx` and in their simplest form plain markdown. They, however, **must** have frontmatter at the absolute top of the file. Frontmatter is written inside `---` and is the metadata of the post.
 
 ```
 ---

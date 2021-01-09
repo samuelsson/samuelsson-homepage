@@ -1,18 +1,8 @@
 import { GatsbyConfig } from 'gatsby';
+import gatsbyFeedOptions from './src/helpers/gatsbyFeedOptions';
+import siteMetadata from './content/siteMetadata';
 
-export const siteMetadata: GatsbyConfig['siteMetadata'] = {
-  title: 'Erik Samuelsson',
-  author: 'Erik Samuelsson',
-  description:
-    'Erik is a web developer from Sweden who has a huge interest in software development, IT and technology. He documents the new stuff he learns in this fast paced industry as he goes along.',
-  tagLine: 'Blog and homepage of web developer Erik Samuelsson',
-  siteUrl: 'https://eriksamuelsson.com',
-  social: {
-    gitHub: 'samuelsson',
-    linkedIn: 'eriksamuelsson',
-  },
-  baseUrl: 'https://eriksamuelsson.com',
-};
+export { siteMetadata };
 
 // `gatsby-remark-images` needs to be in both in `gatsbyRemarkPlugins` and root
 // plugins array to work correctly.
@@ -40,7 +30,6 @@ export const plugins: GatsbyConfig['plugins'] = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-styled-components',
-  'gatsby-plugin-feed-mdx',
   defaultRemarkImages,
   ...sourcedContent,
   {
@@ -58,5 +47,9 @@ export const plugins: GatsbyConfig['plugins'] = [
     options: {
       exclude: ['/404', 'dev-404-page'],
     },
+  },
+  {
+    resolve: `gatsby-plugin-feed-mdx`,
+    options: gatsbyFeedOptions,
   },
 ];

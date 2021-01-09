@@ -20,6 +20,7 @@ export interface Node {
     slug: string;
   };
   excerpt: string;
+  html: string;
   frontmatter: Frontmatter;
 }
 
