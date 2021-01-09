@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/samuelsson/eriksamuelsson/compare/v1.3.0...v1.3.1) (2021-01-09)
+
+
+### Bug Fixes
+
+* 🐛 remove twitter from meta data ([a3cc894](https://github.com/samuelsson/eriksamuelsson/commit/a3cc894b0d1408e6f443251e895eed944a6fa242))
+
 ## [1.3.0](https://github.com/samuelsson/eriksamuelsson/compare/v1.2.1...v1.3.0) (2021-01-08)
 
 
