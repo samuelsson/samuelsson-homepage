@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/samuelsson/eriksamuelsson/compare/v1.3.1...v1.3.2) (2021-01-09)
+
+
+### Bug Fixes
+
+* 🐛 add correct generation of sitemap ([039bfdd](https://github.com/samuelsson/eriksamuelsson/commit/039bfdd4cfe6d0fdcfc75c2939f1fb0707d07499))
+
 ### [1.3.1](https://github.com/samuelsson/eriksamuelsson/compare/v1.3.0...v1.3.1) (2021-01-09)
 
 
