@@ -63,9 +63,7 @@ export default {
       }
       allSitePage {
         nodes {
-          path,
-          componentPath,
-          id,
+          path
         }
       }
       allMdx(filter: { fileAbsolutePath: { regex: "/content/posts/" } }) {
