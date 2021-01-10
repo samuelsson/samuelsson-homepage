@@ -7,7 +7,7 @@ Visit it at [eriksamuelsson.com](https://eriksamuelsson.com/).
 
 ## Manage content submodule
 
-The content, such as blog posts, is a submodule of a private repository and can only be fetched by me ([@samuelsson](https://github.com/samuelsson)) or others with read access. That means if you clone this repo you won't see any content.
+The content (pages, blog posts, images) is a submodule of a private repository and can only be fetched by me ([@samuelsson](https://github.com/samuelsson)) or others with read access. That means if you clone this repo you won't see any content.
 
 For those having permissions to the content submodule it can be updated locally with `git submodule update --remote`. When there are new content the submodule hash will be updated and added as new changes to git in this repo. This can then be committed and pushed as normal.
 
@@ -16,13 +16,14 @@ If it's the first time cloning the project you need to do it recursively for the
 If you don't have access or want to add your own content it is easily achieved with the following directory structure:
 
 ```
-.
+/
 └── content
     ├── pages
     │   ├── 404.mdx
     │   ├── about.mdx
     │   ├── blog.mdx
     │   ├── contact.mdx
+    │   ├── index.mdx
     │   └── privacy.mdx
     ├── posts
     │   ├── blog-post-1.md
@@ -49,9 +50,13 @@ The posts are either in `.md` or `.mdx` and in their simplest form plain markdow
 ---
 title: 'Title of the post'
 date: '2019-11-21'
-categories: ['code']
-tags: ['typescript', 'javascript', 'promises']
 thumbnail: '../thumbnails/typescript.png'
+categories: 
+  - code
+tags: 
+  - typescript
+  - javascript
+  - promises
 ---
 
 Here is the normal markdown content of the post.
