@@ -78,7 +78,7 @@ export default {
       }
     }
   `,
-  exclude: ['/categories/*', '/tags/*'],
+  exclude: ['/categories', '/categories/*', '/tags', '/tags/*'],
   serialize: ({ site, allSitePage, allMdx }: SitemapProps): SerializedNode[] =>
     allSitePage.nodes.map((node) => {
       return generateSerializedNode(site, node, allMdx.nodes);
