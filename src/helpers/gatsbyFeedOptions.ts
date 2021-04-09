@@ -73,7 +73,7 @@ export default {
               }
             `,
       output: '/feed.xml',
-      title: 'Erik Samuelsson',
+      title: 'Samuelsson',
     },
   ],
 };

@@ -63,7 +63,7 @@ const Header = (): JSX.Element => (
           <img src="/logo.svg" alt="Logo of homepage" />
         </Link>
         <Link to="/" className="textLinkWrapper">
-          <span>Erik Samuelsson</span>
+          <span>Samuelsson</span>
         </Link>
       </StyledLogo>
       <Navigation />

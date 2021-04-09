@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-sitemap: https://eriksamuelsson.com/sitemap.xml
+sitemap: https://samuelsson.dev/sitemap.xml
