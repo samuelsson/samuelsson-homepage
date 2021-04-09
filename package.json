@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git://github.com/samuelsson/samuelsson-homepage.git"
   },
-  "author": "@ErikSamuelsson",
+  "author": "Erik Samuelsson (https://samuelsson.dev)",
   "license": "MIT",
   "homepage": "https://samuelsson.dev",
   "eslintConfig": {
