@@ -11,7 +11,7 @@ The content (pages, blog posts, images) is a submodule of a private repository a
 
 For those having permissions to the content submodule it can be updated locally with `git submodule update --remote`. When there are new content the submodule hash will be updated and added as new changes to git in this repo. This can then be committed and pushed as normal.
 
-If it's the first time cloning the project you need to do it recursively for the submodules to be fetched as well, `git clone --recursive <project url>`. Or if the project is already cloned, you can do it with `git submodule update --init --recursive`.
+If it's the first time cloning the project you need to do it recursively for the submodules to be fetched as well, `git clone --recursive <project url>`. Or if the project is already cloned, you can do it with `git submodule update --init --recursive`. If you want to make changes to the content submodule make sure you check out its master branch before pushing, as the default one is probably a detached HEAD with the commit ID.
 
 If you don't have access or want to add your own content it is easily achieved with the following directory structure:
 
