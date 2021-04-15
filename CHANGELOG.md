@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/samuelsson/samuelsson-homepage/compare/v1.3.15...v1.4.0) (2021-04-15)
+
+
+### Features
+
+* 🎸 add rss and source code to footer ([d1ec122](https://github.com/samuelsson/samuelsson-homepage/commit/d1ec1228db0f34e5c7959a880e390c7d677b0c45))
+
 ### [1.3.15](https://github.com/samuelsson/samuelsson-homepage/compare/v1.3.14...v1.3.15) (2021-04-09)
 
 ### [1.3.14](https://github.com/samuelsson/samuelsson-homepage/compare/v1.3.13...v1.3.14) (2021-04-09)
