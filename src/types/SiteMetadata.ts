@@ -5,4 +5,5 @@ export default interface SiteMetadata {
   tagLine: string;
   siteUrl: string;
   baseUrl: string;
+  sourceCodeUrl: string;
 }
