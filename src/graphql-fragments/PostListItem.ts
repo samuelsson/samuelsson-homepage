@@ -15,9 +15,7 @@ export const PostListItem = graphql`
         categories
         thumbnail {
           childImageSharp {
-            fixed(width: 60) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(layout: FIXED, width: 60)
           }
         }
       }

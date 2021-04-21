@@ -1,8 +1,8 @@
-import { FixedObject } from 'gatsby-image';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface ChildImage {
   childImageSharp: {
-    fixed: FixedObject;
+    gatsbyImageData: IGatsbyImageData;
   };
 }
 

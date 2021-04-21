@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled from 'styled-components';
 import Seo from '../components/Seo';
@@ -32,7 +32,7 @@ const Post = ({ data }: PostProps): JSX.Element => {
     fields: { slug },
   } = mdx;
   const { title, date, tags, categories, thumbnail } = frontmatter;
-  const thumbnailImage = thumbnail && thumbnail.childImageSharp.fixed;
+  const thumbnailImage = thumbnail && thumbnail.childImageSharp.gatsbyImageData;
 
   const postSEO = {
     published: date,
@@ -56,7 +56,7 @@ const Post = ({ data }: PostProps): JSX.Element => {
           categories={categories}
           thumbnail={
             thumbnailImage && (
-              <Img fixed={thumbnailImage} alt="Post thumbnail" />
+              <GatsbyImage image={thumbnailImage} alt="Post thumbnail" />
             )
           }
         />
@@ -81,9 +81,7 @@ export const pageQuery = graphql`
         categories
         thumbnail {
           childImageSharp {
-            fixed(width: 80) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(layout: FIXED, width: 80)
           }
         }
       }

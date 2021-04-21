@@ -16,6 +16,11 @@ const StyledPostHeader = styled.header`
   text-align: center;
   margin: 0 auto;
 
+  // Centering the thumbnail coming from gatsby-plugin-image
+  > .gatsby-image-wrapper {
+    margin: 0 auto;
+  }
+
   @media ${mediaQueries.medium} {
     width: 80%;
   }

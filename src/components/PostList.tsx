@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import AllMdx, { Node } from '../types/AllMdx';
 import { colors, mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
@@ -109,13 +109,14 @@ const PostList = ({ limit, category, tag }: PostListProps): JSX.Element => {
           fields: { slug },
         } = post;
 
-        const thumbnailImage = thumbnail && thumbnail.childImageSharp.fixed;
+        const thumbnailImage =
+          thumbnail && thumbnail.childImageSharp.gatsbyImageData;
 
         return (
           <StyledLink to={slug} key={slug}>
             {thumbnailImage && (
               <ThumbnailWrapper>
-                <Img fixed={thumbnailImage} />
+                <GatsbyImage image={thumbnailImage} alt="Post thumbnail" />
               </ThumbnailWrapper>
             )}
             <div>
