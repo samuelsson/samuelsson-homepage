@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.1...v1.4.2) (2021-04-21)
+
+
+### Bug Fixes
+
+* 🐛 pathContext renamed pageContext works for createPage() ([7ac3948](https://github.com/samuelsson/samuelsson-homepage/commit/7ac39482a5329d557b383b411d6504212271bd9b))
+
 ### [1.4.1](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.0...v1.4.1) (2021-04-21)
 
 
