@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.0...v1.4.1) (2021-04-21)
+
+
+### Bug Fixes
+
+* 🐛 use gatsby-plugin-image instead of old deprecated plugin ([222ce68](https://github.com/samuelsson/samuelsson-homepage/commit/222ce6817230ba96de6c023d64c2d58c8a2e969b))
+
 ## [1.4.0](https://github.com/samuelsson/samuelsson-homepage/compare/v1.3.15...v1.4.0) (2021-04-15)
 
 
