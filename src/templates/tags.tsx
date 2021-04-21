@@ -3,15 +3,14 @@ import { Link } from 'gatsby';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import { toUrlSafePath } from '../helpers';
+import { TagsPageContext } from '../types/PageContext';
 
 type TagsProps = {
-  pathContext: {
-    tags: string[];
-  };
+  pageContext: TagsPageContext;
 };
 
-const Tags = ({ pathContext }: TagsProps): JSX.Element => {
-  const { tags } = pathContext;
+const Tags = ({ pageContext }: TagsProps): JSX.Element => {
+  const { tags } = pageContext;
 
   return (
     <Layout>

@@ -3,15 +3,14 @@ import { Link } from 'gatsby';
 import Seo from '../components/Seo';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
+import { CategoryPageContext } from '../types/PageContext';
 
 type CategoryProps = {
-  pathContext: {
-    category: string;
-  };
+  pageContext: CategoryPageContext;
 };
 
-const Category = ({ pathContext }: CategoryProps): JSX.Element => {
-  const { category } = pathContext;
+const Category = ({ pageContext }: CategoryProps): JSX.Element => {
+  const { category } = pageContext;
 
   return (
     <Layout>

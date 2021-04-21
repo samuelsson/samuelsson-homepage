@@ -3,6 +3,12 @@ import { createFilePath } from 'gatsby-source-filesystem';
 import { resolve } from 'path';
 import { toUrlSafePath } from './src/helpers';
 import allMdx from './src/types/AllMdx';
+import {
+  CategoriesPageContext,
+  CategoryPageContext,
+  TagPageContext,
+  TagsPageContext,
+} from './src/types/PageContext';
 
 interface AllMarkdownData {
   allMdx: allMdx;
@@ -90,7 +96,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const allCategories = Array.from(categorySet);
 
   // Create page for listing all tags
-  createPage({
+  createPage<TagsPageContext>({
     path: 'tags',
     component: tagsTemplate,
     context: {
@@ -99,7 +105,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   });
 
   // Create page for listing all categories
-  createPage({
+  createPage<CategoriesPageContext>({
     path: 'categories',
     component: categoriesTemplate,
     context: {
@@ -109,7 +115,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   // Create page for listing all posts containing tag
   allTags.forEach((tag) => {
-    createPage({
+    createPage<TagPageContext>({
       path: `/tags/${toUrlSafePath(tag)}/`,
       component: tagTemplate,
       context: {
@@ -120,7 +126,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   // Create page for listing all posts containing category
   allCategories.forEach((category) => {
-    createPage({
+    createPage<CategoryPageContext>({
       path: `/categories/${toUrlSafePath(category)}/`,
       component: categoryTemplate,
       context: {
