@@ -19,41 +19,21 @@ type SitemapProps = {
   };
 };
 
-interface SerializedNode {
-  url: string;
+interface Page {
+  path: string;
+  lastmod: string;
   changefreq?: string;
-  lastmod?: string;
   priority?: number;
 }
 
-const generateSerializedNode = (
-  site: Site,
-  siteNode: SiteNode,
-  mdxNodes: MdxNode[]
-) => {
-  const { path } = siteNode;
-  const baseNode = {
-    url: site.siteMetadata.siteUrl + path,
-    changefreq: `monthly`,
-    priority: 1.0,
-  };
+interface SerializedPage {
+  url: string;
+  lastmod: string;
+  changefreq?: string;
+  priority?: number;
+}
 
-  // Blog post pages
-  const post = mdxNodes.find((node) => node.fields.slug === path);
-  if (post) {
-    return {
-      ...baseNode,
-      lastmod: post.frontmatter.date,
-      priority: 0.8,
-    };
-  }
-
-  // The rest, base pages
-  return baseNode;
-};
-
-export default {
-  query: `
+const query = `
     {
       site {
         siteMetadata {
@@ -77,10 +57,27 @@ export default {
         }
       }
     }
-  `,
-  exclude: ['/categories', '/categories/*', '/tags', '/tags/*'],
-  serialize: ({ site, allSitePage, allMdx }: SitemapProps): SerializedNode[] =>
-    allSitePage.nodes.map((node) => {
-      return generateSerializedNode(site, node, allMdx.nodes);
-    }),
+  `;
+
+const resolvePages = ({ allSitePage, allMdx }: SitemapProps): Page[] => {
+  const buildDate = new Date();
+
+  return allSitePage.nodes.map((page) => {
+    const { path } = page;
+    const post = allMdx.nodes.find((node) => node.fields.slug === path);
+    const lastModDate = post ? new Date(post.frontmatter.date) : buildDate;
+
+    return { path, lastmod: lastModDate.toISOString() };
+  });
+};
+
+export default {
+  query,
+  output: '/',
+  excludes: ['/categories', '/categories/*', '/tags', '/tags/*'],
+  resolvePages,
+  serialize: ({ path, lastmod }: Page): SerializedPage => ({
+    url: path,
+    lastmod,
+  }),
 };
