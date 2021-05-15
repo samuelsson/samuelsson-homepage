@@ -38,13 +38,8 @@ const Seo = ({
 }: SeoProps): JSX.Element => {
   const { site } = useStaticQuery(siteMetadataQuery);
 
-  const {
-    title,
-    description,
-    tagLine,
-    author,
-    baseUrl,
-  }: SiteMetadata = site.siteMetadata;
+  const { title, description, tagLine, author, baseUrl }: SiteMetadata =
+    site.siteMetadata;
   const metaDescription = pageDescription || description;
   const metaTitle = pageTitle || title;
   const metaUrl = path ? `${baseUrl}${path}` : baseUrl;
