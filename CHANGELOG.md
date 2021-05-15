@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.4](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.3...v1.4.4) (2021-05-15)
+
+
+### Bug Fixes
+
+* 🐛 make sitemap generation work again after plugin upgrade ([eac5efd](https://github.com/samuelsson/samuelsson-homepage/commit/eac5efd53b97ae4a810ad2e68fe467dd99a942fe))
+* 🐛 set correct sitemap path in robots.txt ([690a7f2](https://github.com/samuelsson/samuelsson-homepage/commit/690a7f23602e8b410ff6fe5b7a04349e5e068f94))
+
 ### [1.4.3](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.2...v1.4.3) (2021-05-07)
 
 ### [1.4.2](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.1...v1.4.2) (2021-04-21)
