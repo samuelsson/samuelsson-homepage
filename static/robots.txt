@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-sitemap: https://samuelsson.dev/sitemap.xml
+sitemap: https://samuelsson.dev/sitemap-index.xml
