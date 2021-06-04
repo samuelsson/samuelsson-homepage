@@ -4,13 +4,16 @@
   "description": "Personal homepage of Erik Samuelsson",
   "main": "index.js",
   "scripts": {
-    "start": "gatsby telemetry --disable && gatsby develop",
-    "develop": "gatsby telemetry --disable && gatsby develop",
+    "dev": "gatsby telemetry --disable && gatsby develop",
     "build": "gatsby telemetry --disable && gatsby build",
     "serve": "gatsby telemetry --disable && gatsby serve",
     "lint": "tsc --noEmit && eslint ./ --ext .js,.ts,.tsx",
     "release": "yarn standard-version && git push --follow-tags origin master",
     "prepare": "husky install"
+  },
+  "engines": {
+    "node": "^16.0.0",
+    "yarn": "^1.22.0"
   },
   "repository": {
     "type": "git",
