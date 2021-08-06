@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.15...v1.5.0) (2021-08-06)
+
+
+### Features
+
+* 🎸 add complete dark theme when system supports dark mode ([5f7efbf](https://github.com/samuelsson/samuelsson-homepage/commit/5f7efbf6341929c5bbf62999947b6d2f565bf87f))
+
 ### [1.4.15](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.14...v1.4.15) (2021-08-05)
 
 ### [1.4.14](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.13...v1.4.14) (2021-08-04)
