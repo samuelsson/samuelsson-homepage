@@ -3,7 +3,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import AllMdx, { Node } from '../types/AllMdx';
-import { colors, mediaQueries } from '../styles';
+import { mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 import { htmlToText } from '../helpers';
 
@@ -28,7 +28,7 @@ const StyledPostList = styled.div`
 const StyledLink = styled(Link)`
   display: flex;
   padding: 1rem 0;
-  border-bottom: 1px solid ${colors.gray[400]};
+  border-bottom: ${({ theme }) => theme.PostList.StyledLink.borderBottom};
   box-shadow: none;
   text-decoration: none;
   color: inherit;
@@ -38,7 +38,8 @@ const StyledLink = styled(Link)`
   }
 
   &:hover {
-    background-color: ${colors.gray[200]};
+    background-color: ${({ theme }) =>
+      theme.PostList.StyledLink.hoverBackgroundColor};
     color: inherit;
   }
 

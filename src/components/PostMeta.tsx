@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { colors, mediaQueries } from '../styles';
+import { mediaQueries } from '../styles';
 import Emoji from './Emoji';
 import { toUrlSafePath } from '../helpers';
 
@@ -14,7 +14,7 @@ type PostMetaProps = {
 const StyledPostMeta = styled.div`
   padding: 0.5rem 0;
   font-size: 0.8rem;
-  color: ${colors.gray[700]};
+  color: ${({ theme }) => theme.PostMeta.color};
 
   > span {
     display: inline-block;
@@ -40,7 +40,7 @@ const StyledPostMeta = styled.div`
     color: inherit;
 
     &:hover {
-      color: ${colors.black};
+      color: ${({ theme }) => theme.PostMeta.hoverColor};
       text-decoration: underline;
       background-color: transparent;
     }

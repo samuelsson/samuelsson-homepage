@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, mediaQueries } from '../styles';
+import { mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 import { toUrlSafePath } from '../helpers';
 
@@ -36,18 +36,20 @@ const StyledTag = styled.a`
   margin: 0.5rem;
   border-radius: 5px;
   border: none;
-  color: ${colors.gray[700]};
+  color: ${({ theme }) => theme.PostHeader.StyledTag.color};
   text-decoration: none;
-  background-color: ${colors.gray[300]};
-  box-shadow: 0 2px 3px ${colors.gray[500]};
+  background-color: ${({ theme }) =>
+    theme.PostHeader.StyledTag.backgroundColor};
+  box-shadow: ${({ theme }) => theme.PostHeader.StyledTag.boxShadow};
   font-size: 0.8rem;
 
   transition: all 0.2s;
 
   &:hover {
-    background-color: ${colors.blue};
-    box-shadow: 0 2px 5px ${colors.gray[600]};
-    color: #fff;
+    color: ${({ theme }) => theme.PostHeader.StyledTag.hoverColor};
+    background-color: ${({ theme }) =>
+      theme.PostHeader.StyledTag.hoverBackgroundColor};
+    box-shadow: ${({ theme }) => theme.PostHeader.StyledTag.hoverBoxShadow};
   }
 `;
 

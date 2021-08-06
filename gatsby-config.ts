@@ -1,6 +1,7 @@
 import { GatsbyConfig } from 'gatsby';
 import { gatsbyFeedOptions, gatsbySitemapOptions } from './src/helpers';
 import siteMetadata from './content/siteMetadata';
+import { light, dark } from './src/styles/theme';
 
 export { siteMetadata };
 
@@ -42,6 +43,10 @@ export const plugins: GatsbyConfig['plugins'] = [
       },
       gatsbyRemarkPlugins: ['gatsby-remark-prismjs', defaultRemarkImages],
     },
+  },
+  {
+    resolve: `gatsby-styled-components-dark-mode`,
+    options: { light, dark },
   },
   {
     resolve: 'gatsby-plugin-sitemap',

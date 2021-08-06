@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { colors, mediaQueries } from '../styles';
+import { mediaQueries } from '../styles';
 
 interface NavLink {
   to: string;
@@ -26,19 +26,19 @@ const StyledNavigation = styled.nav`
 
       a {
         text-decoration: none;
-        color: ${colors.gray[700]};
+        color: ${({ theme }) => theme.Navigation.a.color};
         border: none;
         box-shadow: none;
         
         &:hover {
           border: none;
           background-color: transparent;
-          color: ${colors.black};
+          color: ${({ theme }) => theme.Navigation.a.hoverColor};
         }
       }
       
       .active {
-        color: ${colors.black};
+        color: ${({ theme }) => theme.Navigation.a.activeColor};
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import { colors, mediaQueries, variables } from '../styles';
+import { mediaQueries, variables } from '../styles';
 
 const siteMetadataQuery = graphql`
   query {
@@ -14,8 +14,8 @@ const siteMetadataQuery = graphql`
 `;
 
 const StyledFooterContainer = styled.div`
-  border-top: 2px solid ${colors.gray[300]};
-  background-color: ${colors.gray[200]};
+  border-top: 2px solid ${({ theme }) => theme.Footer.borderTopColor};
+  background-color: ${({ theme }) => theme.Footer.backgroundColor};
 `;
 
 const LinkSeparator = styled.span`

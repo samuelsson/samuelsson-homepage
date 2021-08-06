@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import { mediaQueries, variables } from '../styles';
+import GlobalStyles from '../GlobalStyles';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -31,14 +32,21 @@ const StyledMain = styled.main`
   }
 `;
 
-const Layout = ({ children }: FooterProps): JSX.Element => (
-  <StyledLayout>
-    <Header />
-    <StyledMainContainer>
-      <StyledMain role="main">{children}</StyledMain>
-    </StyledMainContainer>
-    <Footer />
-  </StyledLayout>
-);
+const Layout = ({ children }: FooterProps): JSX.Element => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <>
+      <GlobalStyles theme={theme} />
+      <StyledLayout>
+        <Header />
+        <StyledMainContainer>
+          <StyledMain role="main">{children}</StyledMain>
+        </StyledMainContainer>
+        <Footer />
+      </StyledLayout>
+    </>
+  );
+};
 
 export default Layout;
