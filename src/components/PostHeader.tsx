@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 import { toUrlSafePath } from '../helpers';
-import { Link } from "gatsby";
 
 type PostHeaderProps = {
   title: string;
