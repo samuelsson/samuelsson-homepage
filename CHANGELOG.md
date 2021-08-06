@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/samuelsson/samuelsson-homepage/compare/v1.5.0...v1.5.1) (2021-08-06)
+
+
+### Bug Fixes
+
+* 🐛 set correct color on cites and make tags gatsby links ([dfa2e7d](https://github.com/samuelsson/samuelsson-homepage/commit/dfa2e7dc1f1710c3c652f4fcb9d920002fed1c85))
+
 ## [1.5.0](https://github.com/samuelsson/samuelsson-homepage/compare/v1.4.15...v1.5.0) (2021-08-06)
 
 
