@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { mediaQueries } from '../styles';
 import PostMeta from './PostMeta';
 import { toUrlSafePath } from '../helpers';
+import { Link } from "gatsby";
 
 type PostHeaderProps = {
   title: string;
@@ -30,7 +31,7 @@ const StyledTitle = styled.h1`
   margin: 1rem 0 0;
 `;
 
-const StyledTag = styled.a`
+const StyledTag = styled(Link)`
   display: inline-block;
   padding: 0.2rem 0.5rem;
   margin: 0.5rem;
@@ -65,7 +66,7 @@ const PostHeader = ({
     <StyledTitle>{title}</StyledTitle>
     <PostMeta date={date} categories={categories} categoryLink />
     {tags.map((tag) => (
-      <StyledTag href={`/tags/${toUrlSafePath(tag)}`} key={tag}>
+      <StyledTag to={`/tags/${toUrlSafePath(tag)}`} key={tag}>
         {tag}
       </StyledTag>
     ))}

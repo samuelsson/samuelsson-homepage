@@ -10,6 +10,7 @@ export type Theme = {
     beforeColor: string;
     borderLeftColor: string;
     color: string;
+    citeColor: string;
   };
   prism: {
     code: {
@@ -65,6 +66,7 @@ export const light: Theme = {
     beforeColor: colors.gray[600],
     borderLeftColor: colors.gray[600],
     color: colors.gray[700],
+    citeColor: colors.gray[800],
   },
   prism: {
     code: {
@@ -120,6 +122,7 @@ export const dark: Theme = {
     beforeColor: colors.blueGray[200],
     borderLeftColor: colors.blueGray[800],
     color: colors.blueGray[200],
+    citeColor: colors.blueGray[400],
   },
   prism: {
     code: {

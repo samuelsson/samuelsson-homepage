@@ -93,7 +93,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     }
     
     cite {
-      color: ${colors.gray[800]};
+      color: ${({ theme }) => theme.blockquote.citeColor};
       font-style: normal;
       font-weight: bold;
       margin-top: 1rem;
