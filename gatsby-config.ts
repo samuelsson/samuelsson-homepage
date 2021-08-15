@@ -11,6 +11,8 @@ const defaultRemarkImages = {
   resolve: 'gatsby-remark-images',
   options: {
     backgroundColor: 'transparent',
+    linkImagesToOriginal: false,
+    disableBgImageOnAlpha: true,
     maxWidth: 800,
   },
 };

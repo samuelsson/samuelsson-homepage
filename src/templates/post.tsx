@@ -9,6 +9,7 @@ import PostHeader from '../components/PostHeader';
 import { colors } from '../styles';
 import { htmlToText } from '../helpers';
 import { Node } from '../types/AllMdx';
+import MDXWrapper from '../components/MDXWrapper';
 
 type PostProps = {
   data: {
@@ -60,7 +61,9 @@ const Post = ({ data }: PostProps): JSX.Element => {
             )
           }
         />
-        <MDXRenderer>{body}</MDXRenderer>
+        <MDXWrapper>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXWrapper>
       </StyledArticle>
     </Layout>
   );

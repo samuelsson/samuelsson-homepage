@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout';
 import { Node } from '../types/AllMdx';
+import MDXWrapper from '../components/MDXWrapper';
 
 type PostProps = {
   data: {
@@ -15,7 +16,9 @@ const Post = ({ data }: PostProps): JSX.Element => {
 
   return (
     <Layout>
-      <MDXRenderer>{body}</MDXRenderer>
+      <MDXWrapper>
+        <MDXRenderer>{body}</MDXRenderer>
+      </MDXWrapper>
     </Layout>
   );
 };
