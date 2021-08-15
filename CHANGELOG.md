@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/samuelsson/samuelsson-homepage/compare/v1.5.2...v1.6.0) (2021-08-15)
+
+
+### Features
+
+* 🎸 add gatsby links for all internal links in mdx files ([17fee6a](https://github.com/samuelsson/samuelsson-homepage/commit/17fee6ac32226ba845d6fa309779456b2a777865))
+
 ### [1.5.2](https://github.com/samuelsson/samuelsson-homepage/compare/v1.5.1...v1.5.2) (2021-08-14)
 
 ### [1.5.1](https://github.com/samuelsson/samuelsson-homepage/compare/v1.5.0...v1.5.1) (2021-08-06)
