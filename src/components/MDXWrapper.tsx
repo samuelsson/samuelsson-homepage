@@ -11,22 +11,22 @@ type CustomLinkProps = {
   children: ReactNode;
 };
 
+const CustomLink = ({
+  href,
+  children: linkChildren,
+}: CustomLinkProps): JSX.Element => {
+  if (href.startsWith('/')) {
+    return <Link to={href}>{linkChildren}</Link>;
+  }
+
+  return (
+    <a href={href} rel="noreferrer noopener">
+      {linkChildren}
+    </a>
+  );
+};
+
 const MDXWrapper = ({ children }: MDXWrapperProps): JSX.Element => {
-  const CustomLink = ({
-    href,
-    children: linkChildren,
-  }: CustomLinkProps): JSX.Element => {
-    if (href.startsWith('/')) {
-      return <Link to={href}>{linkChildren}</Link>;
-    }
-
-    return (
-      <a href={href} rel="noreferrer noopener">
-        {linkChildren}
-      </a>
-    );
-  };
-
   const components = {
     a: CustomLink,
   };
