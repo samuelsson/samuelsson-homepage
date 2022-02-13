@@ -1,6 +1,6 @@
 {
   "name": "samuelsson-homepage",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Personal homepage of Erik Samuelsson",
   "main": "index.js",
   "scripts": {
