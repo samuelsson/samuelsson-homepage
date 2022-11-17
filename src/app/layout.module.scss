@@ -1,0 +1,17 @@
+@use "../styles/abstracts/variables";
+
+.Layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.LayoutContent {
+  flex-grow: 1;
+}
+
+.Main {
+  margin-bottom: variables.$spacing-6;
+  margin-top: variables.$spacing-6;
+  box-sizing: border-box;
+}

@@ -1,0 +1,16 @@
+$breakpoint-s: 640px;
+$breakpoint-m: 768px;
+$breakpoint-l: 992px;
+$breakpoint-xl: 1280px;
+
+$spacing-1: 0.25rem; // 4px when root font-size being 16px
+$spacing-2: 0.5rem; // 8px when root font-size being 16px
+$spacing-3: 0.75rem; // 12px when root font-size being 16px
+$spacing-4: 1.25rem; // 20px when root font-size being 16px
+$spacing-5: 2rem; // 32px when root font-size being 16px
+$spacing-6: 3.25rem; // 52px when root font-size being 16px
+$spacing-7: 5.25rem; // 84px when root font-size being 16px
+
+// Local variables
+
+$default-element-spacing: $spacing-3;

@@ -1,0 +1,45 @@
+@use "../../styles/abstracts/colors";
+@use "../../styles/abstracts/variables";
+
+@mixin element-width($breakpoint) {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: variables.$default-element-spacing;
+  padding-right: variables.$default-element-spacing;
+
+  @if $breakpoint == "s" {
+    max-width: variables.$breakpoint-s;
+  }
+
+  @if $breakpoint == "m" {
+    max-width: variables.$breakpoint-m;
+  }
+
+  @if $breakpoint == "l" {
+    max-width: variables.$breakpoint-l;
+  }
+
+  @if $breakpoint == "xl" {
+    max-width: variables.$breakpoint-xl;
+  }
+}
+
+@mixin focus-style {
+  box-shadow: colors.$white 0 0 0 4px;
+  outline: colors.$blue solid 2px;
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: colors.$black 0 0 0 4px;
+  }
+}
+
+@mixin visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

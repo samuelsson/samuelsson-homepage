@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "extends": [
+    "@samuelsson/eslint-config/react-typescript",
+    "next/core-web-vitals"
+  ],
+  "env": {
+    "es6": true,
+    "shared-node-browser": true
+  }
+}

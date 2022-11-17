@@ -1,0 +1,20 @@
+@use "../../../../styles/abstracts/colors";
+@use "../../../../styles/abstracts/variables";
+
+$code-block-margin: variables.$spacing-5 !important;
+
+.CodeBlock {
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0.25rem 0.75rem;
+  font-size: 0.8rem !important;
+  margin-top: $code-block-margin;
+  margin-bottom: $code-block-margin;
+  padding: variables.$spacing-5 variables.$spacing-4 !important;
+}
+
+.InlineCode {
+  background-color: colors.$gray-300;
+  font-size: 0.85rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.2rem;
+}

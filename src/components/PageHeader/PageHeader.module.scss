@@ -1,0 +1,23 @@
+@use "../../styles/abstracts/mixins";
+@use "../../styles/abstracts/variables";
+
+.PageHeader {
+
+}
+
+.PageHeaderContainer {
+  @include mixins.element-width(xl);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: variables.$default-element-spacing;
+  padding-top: variables.$default-element-spacing;
+}
+
+.Logo {
+  position: relative;
+  height: variables.$spacing-5;
+  aspect-ratio: 1/1;
+  line-height: 0;
+}

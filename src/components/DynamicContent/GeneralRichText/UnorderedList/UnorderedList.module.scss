@@ -1,0 +1,20 @@
+@use "../../../../styles/abstracts/mixins";
+@use "../../../../styles/abstracts/variables";
+
+.UnorderedListWrapper {
+  @include mixins.element-width(m);
+}
+
+.UnorderedList {
+  & > li {
+    margin-bottom: variables.$spacing-1;
+
+    & > ul > li {
+      margin-bottom: 0;
+    }
+  }
+
+  li p {
+    margin: 0;
+  }
+}
