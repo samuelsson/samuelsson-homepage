@@ -1,7 +1,7 @@
+import { ReactElement } from 'react';
 import { notFound } from 'next/navigation';
 
 import DynamicContent from '../../components/DynamicContent';
-import ElementWrapper from '../../components/ElementWrapper';
 import { getGenericPageData } from './data';
 
 type PageProps = {
@@ -12,7 +12,7 @@ type PageProps = {
 
 const GenericPage = async ({
   params: { slug },
-}: PageProps): Promise<JSX.Element> => {
+}: PageProps): Promise<ReactElement> => {
   const pageData = await getGenericPageData(slug);
 
   if (!pageData) {
@@ -23,9 +23,7 @@ const GenericPage = async ({
 
   return (
     <>
-      <ElementWrapper width="m">
-        <h1>{title}</h1>
-      </ElementWrapper>
+      <h1>{title}</h1>
       <DynamicContent content={content} />
     </>
   );

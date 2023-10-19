@@ -1,3 +1,4 @@
+@use "../styles/abstracts/mixins";
 @use "../styles/abstracts/variables";
 
 .Layout {
@@ -11,6 +12,8 @@
 }
 
 .Main {
+  @include mixins.element-width(m);
+
   margin-bottom: variables.$spacing-6;
   margin-top: variables.$spacing-6;
   box-sizing: border-box;

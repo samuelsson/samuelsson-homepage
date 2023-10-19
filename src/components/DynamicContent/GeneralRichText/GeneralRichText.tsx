@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import styles from './GeneralRichText.module.scss';
@@ -16,7 +17,7 @@ type GeneralRichTextProps = {
   content: string;
 };
 
-const GeneralRichText = ({ content }: GeneralRichTextProps): JSX.Element => {
+const GeneralRichText = ({ content }: GeneralRichTextProps): ReactElement => {
   return (
     <ReactMarkdown
       className={styles.GeneralRichText}

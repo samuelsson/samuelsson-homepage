@@ -1,11 +1,11 @@
-import ElementWrapper from '../components/ElementWrapper';
+import { ReactElement } from 'react';
 
-const NotFound = (): JSX.Element | null => {
+const NotFound = (): ReactElement | null => {
   return (
-    <ElementWrapper width="m">
+    <div>
       <h1>Not found</h1>
       <p>Ohh no! That page was not found :(</p>
-    </ElementWrapper>
+    </div>
   );
 };
 

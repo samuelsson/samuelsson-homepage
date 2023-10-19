@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 import GeneralRichText, { GeneralRichTextType } from './GeneralRichText';
 
 // Here I'll add more types as I add them in the CMS. Add switch/case in render.
@@ -7,7 +9,7 @@ type DynamicContentProps = {
   content: Content[];
 };
 
-const DynamicContent = ({ content }: DynamicContentProps): JSX.Element => {
+const DynamicContent = ({ content }: DynamicContentProps): ReactElement => {
   return (
     <>
       {content.map((cont) => {

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import 'normalize.css/normalize.css';
 import { Metadata } from 'next';
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: 'Blog and homepage of web developer Erik Samuelsson',
 };
 
-const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
+const RootLayout = ({ children }: RootLayoutProps): ReactElement => {
   return (
     <html lang="en">
       <body className={fontMontserrat.className}>

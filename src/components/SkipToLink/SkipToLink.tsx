@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 import styles from './SkipToLink.module.scss';
 
 type SkipToLinkProps = {
@@ -5,7 +7,7 @@ type SkipToLinkProps = {
   text: string;
 };
 
-const SkipToLink = ({ skipToId, text }: SkipToLinkProps): JSX.Element => {
+const SkipToLink = ({ skipToId, text }: SkipToLinkProps): ReactElement => {
   return (
     <a className={styles.SkipToLink} href={skipToId}>
       {text}

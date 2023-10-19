@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { notFound } from 'next/navigation';
 
 import BlogPostHeader from './BlogPostHeader';
@@ -12,7 +13,7 @@ type BlogPostPageProps = {
 
 const BlogPostPage = async ({
   params: { slug },
-}: BlogPostPageProps): Promise<JSX.Element> => {
+}: BlogPostPageProps): Promise<ReactElement> => {
   const blogPostData = await getBlogPostData(slug);
 
   if (!blogPostData) {

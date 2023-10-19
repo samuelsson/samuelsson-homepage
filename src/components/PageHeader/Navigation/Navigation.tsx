@@ -1,12 +1,12 @@
 'use client';
 
-import { JSX } from 'react';
+import { ReactElement } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import styles from './Navigation.module.scss';
 
-const Navigation = (): JSX.Element => {
+const Navigation = (): ReactElement => {
   const pathName = usePathname();
 
   const items = [
@@ -16,7 +16,7 @@ const Navigation = (): JSX.Element => {
     { name: 'Test', href: '/test' },
   ];
 
-  const linkItems: JSX.Element[] = items.map((item) => {
+  const linkItems: ReactElement[] = items.map((item) => {
     const isActive = (href: string): boolean => {
       return !!(href === pathName || pathName?.startsWith(`${href}/`));
     };

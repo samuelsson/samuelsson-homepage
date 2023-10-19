@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 import styles from './BlogPostHeader.module.scss';
 
 type BlogPostHeaderProps = {
@@ -12,7 +14,7 @@ const BlogPostHeader = ({
   publishedDate,
   category,
   summary,
-}: BlogPostHeaderProps): JSX.Element | null => {
+}: BlogPostHeaderProps): ReactElement => {
   const date = publishedDate ? new Date(publishedDate) : null;
   const humanReadableDate = date?.toDateString();
   const isoDate = date?.toISOString().split('T')[0];

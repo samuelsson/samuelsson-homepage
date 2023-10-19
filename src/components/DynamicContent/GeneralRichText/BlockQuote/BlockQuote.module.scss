@@ -2,10 +2,6 @@
 @use "../../../../styles/abstracts/mixins";
 @use "../../../../styles/abstracts/variables";
 
-.BlockQuoteWrapper {
-  @include mixins.element-width(m);
-}
-
 .BlockQuote {
   // Style me plzzzz
 }

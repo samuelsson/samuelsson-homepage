@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 // By importing SyntaxHighlighter directly from the esm directory we get this
 // working with React Server Components. Otherwise, we would need 'use client'.
 // https://codesti.com/issue/react-syntax-highlighter/react-syntax-highlighter/493
@@ -9,7 +10,7 @@ import classNames from 'classnames';
 import { fontNotoSansMono } from '../../../../lib/fontHelper';
 import styles from './Code.module.scss';
 
-const Code: CodeComponent = ({ children, className, inline }) => {
+const Code: CodeComponent = ({ children, className, inline }): ReactElement => {
   const match = /language-(\w+)/.exec(className || '');
 
   // Material Oceanic has a hardcoded font, this way we can overwrite it.

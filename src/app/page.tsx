@@ -1,4 +1,6 @@
-const RootPage = (): JSX.Element | null => {
+import { ReactElement } from 'react';
+
+const RootPage = (): ReactElement | null => {
   return null;
 };
 
