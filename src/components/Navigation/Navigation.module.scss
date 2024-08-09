@@ -1,0 +1,32 @@
+@use "../../styles/abstracts/colors";
+@use "../../styles/abstracts/mixins";
+@use "../../styles/abstracts/variables";
+
+.InlineNavigation {
+  display: flex;
+  gap: variables.$spacing-3;
+
+  a {
+    border-radius: variables.$spacing-2;
+    color: colors.$black;
+    padding: variables.$spacing-1 variables.$spacing-3;
+    text-decoration: none;
+    transition: color ease-in-out 0.15s,
+    background-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s;
+
+    &[class="link-is-active"] {
+      background-color: colors.$gray-200;
+    }
+
+    &:hover {
+      background-color: colors.$blue;
+      box-shadow: rgba(0, 0, 0, 0.15) 0 0.25rem 0.5rem;
+      color: colors.$white;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      color: colors.$white;
+    }
+  }
+}

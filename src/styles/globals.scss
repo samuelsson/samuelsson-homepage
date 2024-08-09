@@ -1,0 +1,112 @@
+@use "abstracts/mixins";
+@use "abstracts/variables";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --root-font-size: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 0, 0, 0;
+  }
+}
+
+@media screen and (min-width: variables.$breakpoint-sm) {
+  :root {
+    --root-font-size: 20px;
+  }
+}
+
+html {
+  font-size: var(--root-font-size);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-4xl;
+    @apply mt-12;
+    @apply mb-6;
+  }
+
+  h2 {
+    @apply text-3xl;
+    @apply mt-11;
+    @apply mb-5;
+  }
+
+  h3 {
+    @apply text-2xl;
+    @apply mt-10;
+    @apply mb-4;
+  }
+
+  h4 {
+    @apply text-xl;
+    @apply mt-9;
+    @apply mb-3;
+  }
+
+  h5 {
+    @apply text-lg;
+    @apply mt-8;
+    @apply mb-2;
+  }
+
+  h6 {
+    @apply mt-7;
+    @apply mb-1;
+  }
+
+  p {
+    @apply mb-6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-sm {
+    @include mixins.container;
+    @apply max-w-screen-sm;
+  }
+
+  .container-md {
+    @include mixins.container;
+    @apply max-w-screen-md;
+  }
+
+  .container-lg {
+    @include mixins.container;
+    @apply max-w-screen-lg;
+  }
+
+  .container-xl {
+    @include mixins.container;
+    @apply max-w-screen-xl;
+  }
+
+  .container-2xl {
+    @include mixins.container;
+    @apply max-w-screen-2xl;
+  }
+}

@@ -1,0 +1,27 @@
+@use "../../styles/abstracts/colors";
+@use "../../styles/abstracts/variables";
+
+@mixin container {
+  box-sizing: border-box;
+  @apply mx-auto;
+  @apply px-3;
+}
+
+@mixin focus-style {
+  box-shadow: colors.$white 0 0 0 4px;
+  outline: colors.$blue solid 2px;
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: colors.$black 0 0 0 4px;
+  }
+}
+
+@mixin visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

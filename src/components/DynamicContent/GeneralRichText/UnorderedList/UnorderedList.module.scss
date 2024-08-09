@@ -1,0 +1,16 @@
+@use "../../../../styles/abstracts/mixins";
+@use "../../../../styles/abstracts/variables";
+
+.UnorderedList {
+  & > li {
+    margin-bottom: variables.$spacing-1;
+
+    & > ul > li {
+      margin-bottom: 0;
+    }
+  }
+
+  li p {
+    margin: 0;
+  }
+}

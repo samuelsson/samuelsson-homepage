@@ -1,0 +1,23 @@
+@use "../../../styles/abstracts/colors";
+@use "../../../styles/abstracts/mixins";
+@use "../../../styles/abstracts/variables";
+
+$code-block-margin: variables.$spacing-5 !important;
+
+//.GeneralRichText {
+//  // Default width for elements without their own component with other width
+//  > p,
+//  > h1,
+//  > h2,
+//  > h3,
+//  > h4,
+//  > h5,
+//  > h6 {
+//    @include mixins.element-width(m);
+//  }
+//
+//  // A bit unnecessary to have a component only for one-line styling of a pre :)
+//  > pre {
+//    @include mixins.element-width(l);
+//  }
+//}
