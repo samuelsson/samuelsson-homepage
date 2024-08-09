@@ -1,80 +1,36 @@
-# Samuelsson's personal homepage
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![Deploy](https://github.com/samuelsson/samuelsson-homepage/workflows/Deploy/badge.svg)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+## Getting Started
 
-Visit it at [samuelsson.dev](https://samuelsson.dev/).
+First, run the development server:
 
-## Manage content submodule
-
-The content (pages, blog posts, images) is a submodule of a private repository and can only be fetched by me ([@samuelsson](https://github.com/samuelsson)) or others with read access. That means if you clone this repo you won't see any content.
-
-For those having permissions to the content submodule it can be updated locally with `git submodule update --remote`. When there are new content the submodule hash will be updated and added as new changes to git in this repo. This can then be committed and pushed as normal.
-
-If it's the first time cloning the project you need to do it recursively for the submodules to be fetched as well, `git clone --recursive <project url>`. Or if the project is already cloned, you can do it with `git submodule update --init --recursive`. If you want to make changes to the content submodule make sure you check out its master branch before pushing, as the default one is probably a detached HEAD with the commit ID.
-
-If you don't have access or want to add your own content it is easily achieved with the following directory structure:
-
-```
-/
-└── content
-    ├── pages
-    │   ├── 404.mdx
-    │   ├── about.mdx
-    │   ├── blog.mdx
-    │   ├── contact.mdx
-    │   ├── index.mdx
-    │   └── privacy.mdx
-    ├── posts
-    │   ├── blog-post-1.md
-    │   ├── post2.mdx
-    │   └── third-blog-post
-    │       ├── index.md
-    │       ├── image.png
-    │       └── image2.png
-    ├── thumbnails
-    │   ├── git.png
-    │   ├── typescript.png
-    │   └── yarn.png
-    └── siteMetadata.ts (with a default export matching the interface in src/types/SiteMetadata.ts)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Posts file name need to be hyphenated because they will also become the url path to the post. The reason for this not being transformed automatically is that sometimes the path need to differ from the actual title of the post.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Format of post file - Frontmatter
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-The posts are either in `.md` or `.mdx` and in their simplest form plain markdown. They, however, **must** have frontmatter at the absolute top of the file. Frontmatter is written inside `---` and is the metadata of the post.
+## Learn More
 
-```
----
-title: 'Title of the post'
-date: '2019-11-21'
-thumbnail: '../thumbnails/typescript.png'
-categories: 
-  - code
-tags: 
-  - typescript
-  - javascript
-  - promises
----
+To learn more about Next.js, take a look at the following resources:
 
-Here is the normal markdown content of the post.
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- No top-level header needed because `title` will become `h1` at the top.
-- Date formatted in ISO 8601 - `YYYY-MM-DD`
-- Preferably have only one category (wider than tags)
-- You can have multiple tags (more specific than category)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deployment
+## Deploy on Vercel
 
-Currently, the deployment of the site is triggered when pushing a new release tag. This is automated with `standard-version` and can be executed with the command `yarn release`. This will do the following:
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- Pre-release hook linting the code, break if linting errors
-- Bumping the version in `package.json`
-- Add changes the CHANGELOG
-- Creating a new version tag
-- Commit the changes
-- Pushing to GitHub with the version tag
-- Triggering a build and deployment in GitHub Actions
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

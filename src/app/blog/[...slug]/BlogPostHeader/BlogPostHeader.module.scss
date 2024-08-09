@@ -1,0 +1,29 @@
+@use "../../../../styles/abstracts/colors";
+@use "../../../../styles/abstracts/mixins";
+@use "../../../../styles/abstracts/variables";
+
+.BlogPostHeader {
+  margin-bottom: variables.$spacing-4;
+}
+
+.ContentWrapper {
+  // TODO: Change me to container-md on className
+  //@include mixins.element-width(m);
+}
+
+.Category {
+  color: colors.$blue;
+  text-transform: capitalize;
+}
+
+.Heading {
+  margin: variables.$spacing-3 0;
+}
+
+.PublishedDate {
+  font-size: 0.8em;
+}
+
+.Summary {
+  margin: variables.$spacing-5 0 variables.$spacing-7;
+}

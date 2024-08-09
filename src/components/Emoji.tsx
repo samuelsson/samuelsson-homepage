@@ -1,14 +1,16 @@
-import React from 'react';
+import { ReactElement } from 'react';
 
 type EmojiProps = {
-  emoji: string;
-  label: string;
+  symbol: string;
+  label?: string;
 };
 
-const Emoji = ({ emoji, label }: EmojiProps): JSX.Element => (
-  <span className="emoji" role="img" aria-label={label}>
-    {emoji}
-  </span>
-);
+const Emoji = ({ symbol, label }: EmojiProps): ReactElement => {
+  return (
+    <span role="img" aria-label={label || ''} aria-hidden={!label}>
+      {symbol}
+    </span>
+  );
+};
 
 export default Emoji;
