@@ -1,83 +1,28 @@
 {
-  "name": "samuelsson-homepage",
+  "name": "shp-client",
   "version": "1.6.6",
   "description": "Personal homepage of Erik Samuelsson",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": "gatsby telemetry --disable && gatsby develop",
-    "build": "gatsby telemetry --disable && gatsby build",
-    "serve": "gatsby telemetry --disable && gatsby serve",
-    "lint": "tsc --noEmit && eslint ./ --ext .js,.ts,.tsx",
-    "release": "yarn standard-version && git push --follow-tags origin master",
-    "prepare": "husky install",
-    "cm": "npx git-cz"
-  },
-  "engines": {
-    "node": "^16.0.0",
-    "yarn": "^1.22.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/samuelsson/samuelsson-homepage.git"
-  },
-  "author": "Erik Samuelsson (https://samuelsson.dev)",
-  "license": "MIT",
-  "homepage": "https://samuelsson.dev",
-  "eslintConfig": {
-    "extends": "@samuelsson/eslint-config"
-  },
-  "standard-version": {
-    "scripts": {
-      "prerelease": "yarn lint"
-    }
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
-    "@fontsource/montserrat": "^4.5.1",
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "gatsby": "^4.5.2",
-    "gatsby-plugin-feed-mdx": "^1.1.0",
-    "gatsby-plugin-image": "^2.5.1",
-    "gatsby-plugin-mdx": "^3.5.1",
-    "gatsby-plugin-react-helmet": "^5.5.0",
-    "gatsby-plugin-sharp": "^4.5.1",
-    "gatsby-plugin-sitemap": "^5.5.0",
-    "gatsby-plugin-styled-components": "^5.5.0",
-    "gatsby-remark-copy-linked-files": "^5.5.0",
-    "gatsby-remark-images": "^6.5.1",
-    "gatsby-remark-prismjs": "^6.5.0",
-    "gatsby-source-filesystem": "^4.5.1",
-    "gatsby-styled-components-dark-mode": "^2.0.4",
-    "gatsby-transformer-sharp": "^4.5.0",
-    "prismjs": "^1.26.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "styled-components": "^5.3.3",
-    "styled-normalize": "^8.0.7"
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.5.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@samuelsson/eslint-config": "1.6.3",
-    "@types/mdx-js__react": "^1.5.5",
-    "@types/react-helmet": "^6.1.5",
-    "@types/styled-components": "^5.1.20",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "@typescript-eslint/parser": "^5.9.1",
-    "eslint": "^8.6.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^7.0.4",
-    "prettier": "^2.5.1",
-    "standard-version": "^9.3.2",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.4"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.2",
+    "@eslint/eslintrc": "^3"
   }
 }
